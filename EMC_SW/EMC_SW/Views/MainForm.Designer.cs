@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
@@ -146,6 +147,7 @@
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox18 = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -1337,6 +1339,7 @@
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(100, 20);
             this.textBox17.TabIndex = 4;
+            this.textBox17.Text = "First";
             // 
             // button1
             // 
@@ -1354,6 +1357,11 @@
             this.textBox18.Name = "textBox18";
             this.textBox18.Size = new System.Drawing.Size(100, 20);
             this.textBox18.TabIndex = 6;
+            this.textBox18.Text = "Second";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // MainForm
             // 
@@ -1527,6 +1535,7 @@
         private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

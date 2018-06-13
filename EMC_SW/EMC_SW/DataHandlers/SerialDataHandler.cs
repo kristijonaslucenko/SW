@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
@@ -39,11 +40,11 @@ namespace EMC_SW.DataHandlers
             _serialPort.Close();
         }
 
-        protected override double ReadData()
+        protected override byte[] ReadData()
         {
-            int data;
-            data = _serialPort.ReadByte();
-            return data;
+            byte[] buffer = new byte[1024];
+            _serialPort.Read(buffer, 0, buffer.Length);
+            return buffer;
         }
 
         protected override void WriteData(byte[] buffer)

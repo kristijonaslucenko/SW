@@ -1,6 +1,7 @@
 ﻿using EMC_SW.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -26,29 +27,23 @@ namespace EMC_SW.DataHandlers
         private Thread readThread;
 
         public Sample CurrentSample { get; set; }
+        //public Sample SentSample { get; set; }
 
         public int SampleRate { get; private set; }
 
-        private int sampleCounter;
-
-        //private System.Threading.Timer sampleRateMeasureTimer;
-
-        public event SampleRateUpdatedEventHandler SampleRateUpdated;
 
         public BaseDataHandler()
         {
             CurrentSample = new Sample();
+            //SentSample = new Sample();
         }
 
-        protected abstract double ReadData();
+        protected abstract byte[] ReadData();
         protected abstract void WriteData(byte[] buffer);
 
         public virtual void Open(String port)
         {
             stopped = false;
-
-            //StartSampleRateMeasure();
-
             readThread = new Thread(DoRead);
             readThread.Start();
         }
@@ -56,19 +51,25 @@ namespace EMC_SW.DataHandlers
         public virtual void Close()
         {
             stopped = true;
+        }
 
-            //StopSampleRateMeasure();
+        public virtual void SendingData(byte[] buffer)
+        {
+            WriteData(buffer);
         }
 
         private void DoRead()
         {
             while (!stopped)
             {
-                double value = ReadData();
+                byte[] value = ReadData();
 
                 //sampleCounter++;
-
-                //CurrentSample.Enqueue(value);
+                if (value != null)
+                {
+                    CurrentSample.Enqueue(value);
+                }
+                //Debug.Print(value.ToString());
             }
         }
 

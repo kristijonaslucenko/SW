@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EMC_SW.Models { 
+namespace EMC_SW.Models {
     public class Sample
     {
-        ConcurrentQueue<double> q = new ConcurrentQueue<double>();
-        public List<double> Q
+        ConcurrentQueue<byte[]> q = new ConcurrentQueue<byte[]>();
+        public List<byte[]> Q
         {
             get
             {
@@ -17,7 +17,7 @@ namespace EMC_SW.Models {
             }
             set
             {
-                q = new ConcurrentQueue<double>(value);
+                q = new ConcurrentQueue<byte[]>(value);
             }
         }
 
@@ -27,24 +27,24 @@ namespace EMC_SW.Models {
         {
         }
 
-        public void Enqueue(double obj)
+        public void Enqueue(byte[] obj)
         {
             q.Enqueue(obj);
             lock (this)
             {
-                double overflow;
+                byte[] overflow;
                 while (q.Count > Limit && q.TryDequeue(out overflow)) ;
             }
         }
-        public double GetMax()
+        public byte[] GetMax()
         {
             return q.Max();
         }
-        public double GetMin()
+        public byte[] GetMin()
         {
             return q.Min();
         }
-        public double Get(int index)
+        public byte[] Get(int index)
         {
             return q.ElementAtOrDefault(index);
         }

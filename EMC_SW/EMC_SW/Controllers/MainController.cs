@@ -40,24 +40,18 @@ namespace EMC_SW.Controllers
         {
             get
             {
-                return 0;
-                //return DataHandler.CurrentSample.Limit;
+                return DataHandler.CurrentSample.Limit;
             }
             set
             {
-                //DataHandler.CurrentSample.Limit = value;
+                DataHandler.CurrentSample.Limit = value;
             }
         }
 
         public MainController()
         {
             DataHandler = new SerialDataHandler();
-            //DataHandler = new RandomDataHandler();
-            //DataHandler.SampleRateUpdated += SerialHandler_SampleRateUpdated;
 
-            ScaleCoeff = 1;
-            Offset = 0;
-            SampleSize = 4096;
         }
 
         public void Start(String port)
@@ -70,42 +64,10 @@ namespace EMC_SW.Controllers
             DataHandler.Close();
         }
 
-
-        public void ShowAnalysis()
+        public void SendData(byte[] buffer)
         {
-            //AnalysisForm analysisForm = new AnalysisForm(DataHandler.CurrentSample, DataHandler.SampleRate);
-            //analysisForm.ShowDialog();
+            DataHandler.SendingData(buffer);
         }
-
-        private void SerialHandler_SampleRateUpdated(object sender, SampleRateUpdatedEventArgs e)
-        {
-            //CurrentSampleRate = e.SampleRate;
-        }
-
-        public double ScaleValue(double value)
-        {
-            return value * ScaleCoeff + Offset;
-        }
-
-        //private void timer1_Tick(object sender, EventArgs e)
-        //{
-        //    if (f2.readyFlag == true)
-        //    {
-        //        makeNewSeries(f2.lastName, "");
-        //        chartMain.Series.FindByName(f2.lastName).Points.Clear();
-        //        queue.Limit = 4096;
-        //        chartMain.ChartAreas[0].AxisX.MajorGrid.Interval = 4096 / 6;
-        //        for (int i = 0; i < f2.queue_received.Limit; ++i)
-        //        {
-        //            double value = f2.queue_received.Get(i);
-
-        //            chartMain.Series[2].Points.AddXY(i, value);
-        //        }
-        //        f2.readyFlag = false;
-        //    }
-
-        //}
-
 
     }
 }
