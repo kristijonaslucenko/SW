@@ -147,7 +147,7 @@
             this.textBox17 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox18 = new System.Windows.Forms.TextBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.GUIrefreshTimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -1359,9 +1359,9 @@
             this.textBox18.TabIndex = 6;
             this.textBox18.Text = "Second";
             // 
-            // timer1
+            // GUIrefreshTimer
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.GUIrefreshTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // MainForm
             // 
@@ -1535,7 +1535,7 @@
         private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer GUIrefreshTimer;
     }
 }
 

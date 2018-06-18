@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EMC_SW.GenConstants;
 
 namespace EMC_SW.DataHandlers
 {
@@ -17,7 +18,7 @@ namespace EMC_SW.DataHandlers
         public SerialDataHandler()
         {
             _serialPort = new SerialPort();
-            _serialPort.BaudRate = 9600;
+            _serialPort.BaudRate = GenConstants.GenConstants.BaudRate;
         }
 
         public override void Open(String port)
@@ -42,7 +43,7 @@ namespace EMC_SW.DataHandlers
 
         protected override byte[] ReadData()
         {
-            byte[] buffer = new byte[1024];
+            byte[] buffer = new byte[GenConstants.GenConstants.SerialBufferReadSize];
             _serialPort.Read(buffer, 0, buffer.Length);
             return buffer;
         }

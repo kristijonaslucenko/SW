@@ -7,3 +7,4 @@ C:\Users\KLU\Documents\GitHub\EMC\EMC_SW\EMC_SW\obj\Debug\EMC_SW.csproj.Generate
 C:\Users\KLU\Documents\GitHub\EMC\EMC_SW\EMC_SW\obj\Debug\EMC_SW.csproj.CoreCompileInputs.cache
 C:\Users\KLU\Documents\GitHub\EMC\EMC_SW\EMC_SW\obj\Debug\EMC_SW.exe
 C:\Users\KLU\Documents\GitHub\EMC\EMC_SW\EMC_SW\obj\Debug\EMC_SW.pdb
+C:\Users\KLU\Documents\GitHub\EMC\EMC_SW\EMC_SW\obj\Debug\EMC_SW.csprojAssemblyReference.cache

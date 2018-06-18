@@ -23,7 +23,15 @@ namespace EMC_SW.Controllers
         {
             get
             {
-                return DataHandler.CurrentSample;
+                return DataHandler.ReadSample;
+            }
+        }
+
+        public Sample SentSample
+        {
+            get
+            {
+                return DataHandler.SentSample;
             }
         }
 
@@ -33,18 +41,27 @@ namespace EMC_SW.Controllers
             private set;
         }
 
-        public double ScaleCoeff { get; set; }
-        public double Offset { get; set; }
-
         public int SampleSize
         {
             get
             {
-                return DataHandler.CurrentSample.Limit;
+                return DataHandler.ReadSample.Limit;
             }
             set
             {
-                DataHandler.CurrentSample.Limit = value;
+                DataHandler.ReadSample.Limit = value;
+            }
+        }
+
+        public int SentSampleSize
+        {
+            get
+            {
+                return DataHandler.SentSample.Limit;
+            }
+            set
+            {
+                DataHandler.SentSample.Limit = value;
             }
         }
 

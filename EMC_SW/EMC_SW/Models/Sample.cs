@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace EMC_SW.Models {
     public class Sample
     {
-        ConcurrentQueue<byte[]> q = new ConcurrentQueue<byte[]>();
+
+       ConcurrentQueue<byte[]> q = new ConcurrentQueue<byte[]>();
         public List<byte[]> Q
         {
             get
@@ -36,6 +37,8 @@ namespace EMC_SW.Models {
                 while (q.Count > Limit && q.TryDequeue(out overflow)) ;
             }
         }
+
+       
         public byte[] GetMax()
         {
             return q.Max();
@@ -47,6 +50,10 @@ namespace EMC_SW.Models {
         public byte[] Get(int index)
         {
             return q.ElementAtOrDefault(index);
+        }
+        public int CountEntries()
+        {
+            return q.Count();
         }
     }
 }
