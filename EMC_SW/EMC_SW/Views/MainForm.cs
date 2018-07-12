@@ -95,7 +95,10 @@ namespace EMC_SW
             RS232controller.SendData(buffer1);
             RS485controller.SendData(buffer2);*/
             //RS232controller.SendData(ConstructPacket(this.count));
-            
+            Byte[] buffer1;
+            buffer1 = EmcProtocol.Call.Create();
+            RS232controller.SendData(buffer1);
+            //Debug.Print();
 
         }
 

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using EMC_SW.GenConstants;
+using EmcProtocol;
 
 namespace EMC_SW.DataHandlers
 {
@@ -63,6 +64,8 @@ namespace EMC_SW.DataHandlers
 
         public virtual void SendingData(byte[] buffer)
         {
+            //Start the routine 100x Calls
+            //EmcProtocol.Call
             WriteData(buffer);
         }
 
@@ -70,7 +73,10 @@ namespace EMC_SW.DataHandlers
         {
             while (!stopped)
             {
-                byte[] value = Decode(ReadData());
+                string s = Encoding.GetEncoding("Windows-1252").GetString(ReadData());
+                Debug.Print(s);
+                Debug.Print("afer print s");
+                /*byte[] value = Decode(ReadData());
 
                 //sampleCounter++;
                 if (value != null)
@@ -78,13 +84,14 @@ namespace EMC_SW.DataHandlers
                     //ReadSample.Enqueue(value);
                     ProcessResults(value);
                 }
-                //Debug.Print(value.ToString());
+                //Debug.Print(value.ToString());*/
             }
         }
 
         private void ProcessResults(byte[] ReceivedData)
         {
-            int StartInd = -1;
+
+           /* int StartInd = -1;
             byte[] ProcessedPacket = new byte[GenConstants.GenConstants.PacketSize];
             //List<byte[]> PacketList = new List<byte[]>();
 
@@ -100,7 +107,7 @@ namespace EMC_SW.DataHandlers
                     ReadSample.Enqueue(ProcessedPacket);
                     QueueProcessing();
                 }
-            }
+            }*/
 
         }
 

@@ -9,7 +9,7 @@ namespace EMC_SW.GenConstants
     static class GenConstants
     {
         public const int PacketSize = 3;
-        public const int BaudRate = 115200;
+        public const int BaudRate = 9600;
         public const int SentPacketListSize = 256;
         public const int ReceivedPacketListSize = 256;
         public const int ResultListSize = 256;
