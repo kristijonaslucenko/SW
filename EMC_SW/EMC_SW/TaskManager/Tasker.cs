@@ -8,6 +8,7 @@ using EMC_SW.Models;
 using EmcProtocol;
 using EMC_SW.GenConstants;
 using System.Diagnostics;
+using EMC_SW.Controllers;
 
 namespace EMC_SW.TaskManager
 {
@@ -15,13 +16,16 @@ namespace EMC_SW.TaskManager
     {
         private Thread TaskManagerThread;
         public TaskQueue LupTaskQueue { get; set; }
+        internal Processor Processor { get; set; }
+
         //public TaskLUP taskLUP { get; set; }
         private bool stopTaskProcessing;
+        
 
         public Tasker()
         {
             LupTaskQueue = new TaskQueue();
-            //taskLUP = new TaskLUP();
+            Processor = new Processor();
         }
 
         public void CreateTask(TaskLUP taskToBeCreated)
@@ -43,11 +47,13 @@ namespace EMC_SW.TaskManager
                 for (int i = 0; i < queueCount; ++i)
                 {
                     int taskId= LupTaskQueue.Get(i).id;
+                    TaskLUP CurrentTask = LupTaskQueue.Get(i);
+
                     switch (taskId)
                     {
                         // GenConstants.GenConstants.CallingTaskId
                         case  1:
-                            Debug.Print(LupTaskQueue.Get(i).id.ToString());
+                            Processor.ProcessCallTask(CurrentTask);
 
                             break;
                         //InitiateUsbWritingId

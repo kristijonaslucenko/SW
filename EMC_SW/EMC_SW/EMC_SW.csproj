@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\GenConstants.cs" />
+    <Compile Include="TaskManager\Processor.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="DataHandlers\BaseDataHandler.cs" />
     <Compile Include="DataHandlers\SerialDataHandler.cs" />

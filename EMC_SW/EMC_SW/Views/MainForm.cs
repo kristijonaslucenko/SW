@@ -70,11 +70,12 @@ namespace EMC_SW
 
             if (RS232port != "")
             {
-                RS232controller.Start(RS232port);
-                GUIrefreshTimer.Enabled = true;
+                //RS232controller.MyTasker.
+                
+                //GUIrefreshTimer.Enabled = true;
             }
 
-            if (RS485port != "")
+            /*if (RS485port != "")
             {
                 RS485controller.Start(RS485port);
             }
@@ -92,7 +93,7 @@ namespace EMC_SW
             if (USBmodemPort != "")
             {
                 USBmodemController.Start(USBmodemPort);
-            }
+            }*/
         }
          
         private void button1_Click(object sender, EventArgs e)
@@ -109,6 +110,7 @@ namespace EMC_SW
             buffer1 = EmcProtocol.Call.Create();
             RS232controller.SendData(buffer1);*/
 
+
             CallingTask = new TaskLUP
             {
                 AddedTask = EmcProtocol.Call.Create(),
@@ -116,9 +118,9 @@ namespace EMC_SW
                 Repetition = 10,
                 IsContinuous = true
             };
-
+            RS232controller.TaskQueueSize = 1;
             RS232controller.MyTasker.CreateTask(CallingTask);
-
+            RS232controller.MyTasker.ProcessTasks();
             //Debug.Print();
 
         }

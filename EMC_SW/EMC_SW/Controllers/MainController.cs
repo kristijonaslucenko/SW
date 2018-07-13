@@ -66,16 +66,23 @@ namespace EMC_SW.Controllers
             }
         }
 
+        public int TaskQueueSize
+        {
+            get
+            {
+                return MyTasker.LupTaskQueue.Limit;
+            }
+            set
+            {
+                MyTasker.LupTaskQueue.Limit = value;
+            }
+        }
+
         public Tasker MyTasker { get; private set; }
 
         public MainController()
         {
             DataHandler = new SerialDataHandler();
-
-        }
-
-        public void CreateTasker()
-        {
             MyTasker = new Tasker();
         }
 
