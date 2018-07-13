@@ -17,8 +17,10 @@ namespace EMC_SW.DataHandlers
 
         public SerialDataHandler()
         {
-            _serialPort = new SerialPort();
-            _serialPort.BaudRate = GenConstants.GenConstants.BaudRate;
+            _serialPort = new SerialPort
+            {
+                BaudRate = GenConstants.GenConstants.BaudRate
+            };
         }
 
         public override void Open(String port)

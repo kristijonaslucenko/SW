@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EMC_SW.Controllers;
 using System.Threading;
-
+using EMC_SW.Models;
 
 namespace EMC_SW
 {
@@ -22,6 +22,15 @@ namespace EMC_SW
         MainController USBdeviceController = null;
         MainController USBmodemController = null;
 
+        TaskLUP InitiateLCDinTestMode = null;
+        TaskLUP InitiateUsbWriting = null;
+        TaskLUP CallingTask = null;
+        TaskLUP RequestLastSeenKey = null;
+        TaskLUP RequestDisplayState = null;
+        TaskLUP RequestUsbHostStatus = null;
+        TaskLUP ReturnLcdToNormalMode = null;
+        TaskLUP StopUsbWriting = null;
+
         public MainForm()
         {
             InitializeComponent();
@@ -30,6 +39,7 @@ namespace EMC_SW
             USBhostController = new MainController();
             USBdeviceController = new MainController();
             USBmodemController = new MainController();
+
 
             foreach (string s in System.IO.Ports.SerialPort.GetPortNames())
             {
@@ -84,7 +94,7 @@ namespace EMC_SW
                 USBmodemController.Start(USBmodemPort);
             }
         }
-
+         
         private void button1_Click(object sender, EventArgs e)
         {
             //Byte[] buffer1, buffer2;
@@ -95,9 +105,20 @@ namespace EMC_SW
             RS232controller.SendData(buffer1);
             RS485controller.SendData(buffer2);*/
             //RS232controller.SendData(ConstructPacket(this.count));
-            Byte[] buffer1;
+            /*Byte[] buffer1;
             buffer1 = EmcProtocol.Call.Create();
-            RS232controller.SendData(buffer1);
+            RS232controller.SendData(buffer1);*/
+
+            CallingTask = new TaskLUP
+            {
+                AddedTask = EmcProtocol.Call.Create(),
+                id = GenConstants.GenConstants.CallingTaskId,
+                Repetition = 10,
+                IsContinuous = true
+            };
+
+            RS232controller.MyTasker.CreateTask(CallingTask);
+
             //Debug.Print();
 
         }

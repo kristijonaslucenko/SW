@@ -1,5 +1,6 @@
 ﻿using EMC_SW.DataHandlers;
 using EMC_SW.Models;
+using EMC_SW.TaskManager;
 //using EMC_SW.Views;
 using System;
 using System.Collections.Generic;
@@ -65,10 +66,17 @@ namespace EMC_SW.Controllers
             }
         }
 
+        public Tasker MyTasker { get; private set; }
+
         public MainController()
         {
             DataHandler = new SerialDataHandler();
 
+        }
+
+        public void CreateTasker()
+        {
+            MyTasker = new Tasker();
         }
 
         public void Start(String port)

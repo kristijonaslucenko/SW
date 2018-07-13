@@ -53,7 +53,9 @@
     <Compile Include="DataHandlers\BaseDataHandler.cs" />
     <Compile Include="DataHandlers\SerialDataHandler.cs" />
     <Compile Include="Models\Packet.cs" />
+    <Compile Include="Models\TaskLUP.cs" />
     <Compile Include="Models\Sample.cs" />
+    <Compile Include="TaskManager\Tasker.cs" />
     <Compile Include="Views\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,9 +90,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Libraries\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\keypadcapture.JPG" />
   </ItemGroup>
