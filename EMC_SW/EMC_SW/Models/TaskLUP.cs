@@ -17,9 +17,7 @@ namespace EMC_SW.Models {
 
     public class TaskQueue
     {
-        //private Task task = new Task();
-   
-       ConcurrentQueue<TaskLUP> q = new ConcurrentQueue<TaskLUP>();
+        ConcurrentQueue<TaskLUP> q = new ConcurrentQueue<TaskLUP>();
         public List<TaskLUP> Q
         {
             get
@@ -33,6 +31,7 @@ namespace EMC_SW.Models {
         }
 
         public int Limit { get; set; }
+        public TaskLUP PeekedTask {get; set;}
 
         public TaskQueue()
         {
@@ -46,6 +45,17 @@ namespace EMC_SW.Models {
                 TaskLUP overflow;
                 while (q.Count > Limit && q.TryDequeue(out overflow)) ;
             }
+        }
+
+        public void Dequeue()
+        {
+            TaskLUP overflow;
+            q.TryDequeue(out overflow);
+        }
+
+        public bool Peek(out TaskLUP PeekedTask)
+        {         
+            return q.TryPeek(out PeekedTask);
         }
         
         public TaskLUP Get(int index)

@@ -70,7 +70,7 @@ namespace EMC_SW
 
             if (RS232port != "")
             {
-                //RS232controller.MyTasker.
+                RS232controller.Start(RS232port);
                 
                 //GUIrefreshTimer.Enabled = true;
             }
@@ -118,9 +118,19 @@ namespace EMC_SW
                 Repetition = 10,
                 IsContinuous = true
             };
-            RS232controller.TaskQueueSize = 1;
+
+            StopUsbWriting = new TaskLUP
+            {
+                AddedTask = null,
+                id = GenConstants.GenConstants.StopUsbWritingTaskId,
+                Repetition = 0,
+                IsContinuous = false
+            };
+            RS232controller.TaskQueueSize = 2;
             RS232controller.MyTasker.CreateTask(CallingTask);
-            RS232controller.MyTasker.ProcessTasks();
+            RS232controller.MyTasker.CreateTask(StopUsbWriting);
+            RS232controller.MyTasker.InitiateTaskProcessing();
+            //RS232controller.MyTasker.ProcessTasks();
             //Debug.Print();
 
         }

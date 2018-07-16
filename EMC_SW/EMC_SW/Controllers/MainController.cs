@@ -83,7 +83,7 @@ namespace EMC_SW.Controllers
         public MainController()
         {
             DataHandler = new SerialDataHandler();
-            MyTasker = new Tasker();
+            MyTasker = new Tasker(DataHandler);
         }
 
         public void Start(String port)

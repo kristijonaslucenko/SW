@@ -28,6 +28,7 @@ namespace EMC_SW.DataHandlers
             try
             {
                 _serialPort.PortName = port;
+                _serialPort.ReadTimeout = GenConstants.GenConstants.SerialReadTimeout;
                 _serialPort.Open();
 
                 base.Open(port);
@@ -43,10 +44,19 @@ namespace EMC_SW.DataHandlers
             _serialPort.Close();
         }
 
-        protected override byte[] ReadData()
+        protected override byte[] ReadData(int BufferSize, out bool timeout)
         {
-            byte[] buffer = new byte[GenConstants.GenConstants.SerialBufferReadSize];
-            _serialPort.Read(buffer, 0, buffer.Length);
+            byte[] buffer = new byte[BufferSize];
+            try
+            {
+                _serialPort.Read(buffer, 0, buffer.Length);
+            }
+            catch (TimeoutException)
+            {
+                timeout = true;
+                return null;
+            }
+            timeout = false;
             return buffer;
         }
 

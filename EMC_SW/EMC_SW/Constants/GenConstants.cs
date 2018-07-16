@@ -25,6 +25,6 @@ namespace EMC_SW.GenConstants
         public static int RequestUsbHostStatusTaskId = 5;
         public static int ReturnLcdToNormalModeTaskId = 6;
         public static int StopUsbWritingTaskId = 7;
-
+        public static int SerialReadTimeout = 200; //ms
     }
 }

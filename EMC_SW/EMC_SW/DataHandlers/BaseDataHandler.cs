@@ -44,16 +44,16 @@ namespace EMC_SW.DataHandlers
             ResultsSample = new Sample();
         }
 
-        protected abstract byte[] ReadData();
+        protected abstract byte[] ReadData(int BufferSize, out bool timeout);
         protected abstract void WriteData(byte[] buffer);
 
         public virtual void Open(String port)
         {
             stopped = false;
-            readThread = new Thread(DoRead);
-            readThread.Start();
-            writeThread = new Thread(DoWrite);
-            writeThread.Start();
+            //readThread = new Thread(DoRead);
+            //readThread.Start();
+            //writeThread = new Thread(DoWrite);
+            //writeThread.Start();
 
         }
 
@@ -64,67 +64,15 @@ namespace EMC_SW.DataHandlers
 
         public virtual void SendingData(byte[] buffer)
         {
-            //Start the routine 100x Calls
-            //EmcProtocol.Call
             WriteData(buffer);
         }
 
-        private void DoRead()
+        public virtual byte[] ReadingData(int BufferSize, out bool timeout)
         {
-            while (!stopped)
-            {
-                string s = Encoding.GetEncoding("Windows-1252").GetString(ReadData());
-                Debug.Print(s);
-                Debug.Print("afer print s");
-                /*byte[] value = Decode(ReadData());
-
-                //sampleCounter++;
-                if (value != null)
-                {
-                    //ReadSample.Enqueue(value);
-                    ProcessResults(value);
-                }
-                //Debug.Print(value.ToString());*/
-            }
+           return ReadData(BufferSize, out timeout);
         }
+        //                string s = Encoding.GetEncoding("Windows-1252").GetString(ReadData());
 
-        private void ProcessResults(byte[] ReceivedData)
-        {
-
-           /* int StartInd = -1;
-            byte[] ProcessedPacket = new byte[GenConstants.GenConstants.PacketSize];
-            //List<byte[]> PacketList = new List<byte[]>();
-
-            for (int i = 0; i < ReceivedData.Length; i++)
-            {
-                if (ReceivedData[i] == GenConstants.GenConstants.StartByte && ReceivedData[i + (GenConstants.GenConstants.PacketSize - 1)] == GenConstants.GenConstants.StopByte)
-                {
-                    //we know it's a packet
-                    StartInd = i;
-                    //Console.WriteLine("StartByte {0}", i);
-                    Array.Copy(ReceivedData, StartInd, ProcessedPacket, 0, 3);
-                    //PacketList.Add(ProcessedPacket);
-                    ReadSample.Enqueue(ProcessedPacket);
-                    QueueProcessing();
-                }
-            }*/
-
-        }
-
-        private void QueueProcessing()
-        {
-            for(int i = 0; i < ReadSample.CountEntries(); i++)
-            {
-                for(int a = 0; a < SentSample.CountEntries(); a++)
-                {
-                    if(!ByteArrayCompare(ReadSample.Get(i), SentSample.Get(a)))
-                    {
-                        ResultsSample.Enqueue(GenConstants.GenConstants.ErrorValue);
-                       // ReadSample
-                    }
-                }
-            }
-        }
 
         private bool ByteArrayCompare(byte[] a1, byte[] a2)
         {
@@ -149,56 +97,5 @@ namespace EMC_SW.DataHandlers
             Array.Copy(packet, temp, i + 1);
             return temp;
         }
-
-        private void DoWrite()
-        {
-            while (!stopped)
-            {
-                byte[] packet = ConstructPacket();
-                WriteData(packet);
-                SentSample.Enqueue(packet);
-            }
-        }
-
-        private byte[] ConstructPacket()
-        {
-            byte StartByte = 0x58;
-            byte StopByte = 0x59;
-            Byte[] PacketToSend = new byte[3];
-            PacketToSend[0] = StartByte;
-            PacketToSend[1] = inc;
-            PacketToSend[2] = StopByte;
-            if (inc >= 255)
-            {
-                inc = 0;
-            }
-            inc++;
-            return PacketToSend;
-        }
-        /*private void StartSampleRateMeasure()
-        {
-            sampleRateMeasureTimer = new System.Threading.Timer(SampleRateCounterTimerTickCallback, this, 0, 1000);
-        }
-
-        private void StopSampleRateMeasure()
-        {
-            sampleRateMeasureTimer.Change(Timeout.Infinite, Timeout.Infinite);
-        }
-
-        private void SampleRateCounterTimerTickCallback(object state)
-        {
-            SampleRate = sampleCounter;
-
-            sampleCounter = 0;
-
-            OnSampleRateUpdated(new SampleRateUpdatedEventArgs(SampleRate));
-        }
-
-        private void OnSampleRateUpdated(SampleRateUpdatedEventArgs e)
-        {
-            SampleRateUpdated(this, e);
-        }
-        */
-
     }
 }

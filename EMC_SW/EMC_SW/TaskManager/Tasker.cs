@@ -9,6 +9,7 @@ using EmcProtocol;
 using EMC_SW.GenConstants;
 using System.Diagnostics;
 using EMC_SW.Controllers;
+using EMC_SW.DataHandlers;
 
 namespace EMC_SW.TaskManager
 {
@@ -18,14 +19,10 @@ namespace EMC_SW.TaskManager
         public TaskQueue LupTaskQueue { get; set; }
         internal Processor Processor { get; set; }
 
-        //public TaskLUP taskLUP { get; set; }
-        private bool stopTaskProcessing;
-        
-
-        public Tasker()
+        public Tasker(BaseDataHandler ProcessorDataHandler)
         {
             LupTaskQueue = new TaskQueue();
-            Processor = new Processor();
+            Processor = new Processor(ProcessorDataHandler);
         }
 
         public void CreateTask(TaskLUP taskToBeCreated)
@@ -36,25 +33,26 @@ namespace EMC_SW.TaskManager
         public void InitiateTaskProcessing()
         {
             TaskManagerThread = new Thread(ProcessTasks);
+            TaskManagerThread.Start();
         }
 
-        public void ProcessTasks()
+        private void ProcessTasks()
         {
 
-            while (!stopTaskProcessing)
-            {
                 int queueCount = LupTaskQueue.CountEntries();
-                for (int i = 0; i < queueCount; ++i)
+                TaskLUP FirstQueueTask;
+                
+            while (LupTaskQueue.Peek(out FirstQueueTask))
                 {
-                    int taskId= LupTaskQueue.Get(i).id;
-                    TaskLUP CurrentTask = LupTaskQueue.Get(i);
+                int taskId = FirstQueueTask.id;
 
                     switch (taskId)
                     {
                         // GenConstants.GenConstants.CallingTaskId
-                        case  1:
-                            Processor.ProcessCallTask(CurrentTask);
-
+                        case 1:
+                                Processor.ProcessCallTask(FirstQueueTask);
+                                LupTaskQueue.Dequeue();
+                                //queueCount = 0;
                             break;
                         //InitiateUsbWritingId
                         case 2:
@@ -79,14 +77,13 @@ namespace EMC_SW.TaskManager
                             break;
                         //StopUsbWritingTaskId
                         case 7:
-
-                            break;
+                        LupTaskQueue.Dequeue();
+                        break;
                         default:
 
                             break;
                     }
                 }
-            }
         }
         /*Thread;
         Conqurent queue,
