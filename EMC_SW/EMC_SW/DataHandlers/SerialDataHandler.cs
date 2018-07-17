@@ -47,10 +47,13 @@ namespace EMC_SW.DataHandlers
         protected override byte[] ReadData(int BufferSize, out bool timeout)
         {
             byte[] buffer = new byte[BufferSize];
+            int bToRead = _serialPort.BytesToRead;
             try
             {
-                if(_serialPort.BytesToRead >= 7) { }
-                _serialPort.Read(buffer, 0, buffer.Length);
+                if (bToRead >= BufferSize)
+                {
+                    _serialPort.Read(buffer, 0, buffer.Length);
+                }
             }
             catch (TimeoutException)
             {

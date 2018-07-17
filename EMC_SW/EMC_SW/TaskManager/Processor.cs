@@ -33,7 +33,6 @@ namespace EMC_SW.Controllers
                 {
                     receive++;
                     missingTrck1 = 0;
-                    
                 }
                 else
                 {

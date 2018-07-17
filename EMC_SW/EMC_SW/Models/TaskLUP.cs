@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EMC_SW.Models {
+namespace EMC_SW.Models
+{
 
     public class TaskLUP
     {
@@ -31,7 +32,7 @@ namespace EMC_SW.Models {
         }
 
         public int Limit { get; set; }
-        public TaskLUP PeekedTask {get; set;}
+        public TaskLUP PeekedTask { get; set; }
 
         public TaskQueue()
         {
@@ -54,10 +55,10 @@ namespace EMC_SW.Models {
         }
 
         public bool Peek(out TaskLUP PeekedTask)
-        {         
+        {
             return q.TryPeek(out PeekedTask);
         }
-        
+
         public TaskLUP Get(int index)
         {
             return q.ElementAtOrDefault(index);
@@ -65,6 +66,11 @@ namespace EMC_SW.Models {
         public int CountEntries()
         {
             return q.Count();
+        }
+        public void CleanQueue()
+        {
+            TaskLUP overflow;
+            while (q.TryDequeue(out overflow));
         }
     }
 }

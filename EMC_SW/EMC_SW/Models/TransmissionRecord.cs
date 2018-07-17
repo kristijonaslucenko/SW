@@ -13,6 +13,8 @@ namespace EMC_SW.Models {
         public int Id { get; set; }
         public int Repetition { get; set; }
         public bool IsContinuous { get; set; }
+        public int Status { get; set; }
+        public int OpErrors { get; set; }
         public int Transmitted { get; set; }
         public int Received { get; set; }
         public int Missing { get; set; }

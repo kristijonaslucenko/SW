@@ -23,7 +23,7 @@ namespace EMC_SW.TaskManager
         {
             LupTaskQueue = new TaskQueue();
             Processor = new Processor(ProcessorDataHandler);
-        }
+        }     
 
         public void CreateTask(TaskLUP taskToBeCreated)
         {
@@ -40,9 +40,8 @@ namespace EMC_SW.TaskManager
         {
 
             int queueCount = LupTaskQueue.CountEntries();
-            TaskLUP FirstQueueTask;
 
-            while (LupTaskQueue.Peek(out FirstQueueTask))
+            while (LupTaskQueue.Peek(out TaskLUP FirstQueueTask))
             {
                 int taskId = FirstQueueTask.id;
 
@@ -68,22 +67,43 @@ namespace EMC_SW.TaskManager
                         break;
                     case 3:
                         //ControlUsbHostTaskId
-
+                        Processor.ProcessControlUsbHostTask(FirstQueueTask);
+                        LupTaskQueue.Dequeue();
+                        if (FirstQueueTask.IsContinuous)
+                        {
+                            LupTaskQueue.Enqueue(FirstQueueTask);
+                        }
                         break;
                     //RequestLastSeenKeyTaskId
                     case 4:
-
+                        Processor.ProcessRequestLastSeenKeyTask(FirstQueueTask);
+                        LupTaskQueue.Dequeue();
+                        if (FirstQueueTask.IsContinuous)
+                        {
+                            LupTaskQueue.Enqueue(FirstQueueTask);
+                        }
                         break;
                     //RequestDisplayStateTaskId
                     case 5:
-
+                        Processor.ProcessRequestDisplayStateTask(FirstQueueTask);
+                        LupTaskQueue.Dequeue();
+                        if (FirstQueueTask.IsContinuous)
+                        {
+                            LupTaskQueue.Enqueue(FirstQueueTask);
+                        }
                         break;
                     //RequestUsbHostStatusTaskId
                     case 6:
+                        Processor.ProcessRequestUsbHostStatusTask(FirstQueueTask);
                         LupTaskQueue.Dequeue();
+                        if (FirstQueueTask.IsContinuous)
+                        {
+                            LupTaskQueue.Enqueue(FirstQueueTask);
+                        }
                         break;
-                    default:
-
+                        //clean task queue
+                    case 7:
+                        LupTaskQueue.CleanQueue();
                         break;
                 }
             }
