@@ -24,24 +24,12 @@ namespace EMC_SW.DataHandlers
 
     public abstract class BaseDataHandler
     {
-        private byte inc = 0;
-        private bool stopped;
-
-        private Thread readThread;
-        private Thread writeThread;
-
-        public Sample ReadSample { get; set; }
-        public Sample SentSample { get; set; }
-        public Sample ResultsSample { get; set; }
-
-        public int SampleRate { get; private set; }
+       public TransmissionRecord TransmissionResults { get; set; }
 
 
         public BaseDataHandler()
         {
-            ReadSample = new Sample();
-            SentSample = new Sample();
-            ResultsSample = new Sample();
+            TransmissionResults = new TransmissionRecord();
         }
 
         protected abstract byte[] ReadData(int BufferSize, out bool timeout);
@@ -49,7 +37,7 @@ namespace EMC_SW.DataHandlers
 
         public virtual void Open(String port)
         {
-            stopped = false;
+            //stopped = false;
             //readThread = new Thread(DoRead);
             //readThread.Start();
             //writeThread = new Thread(DoWrite);
@@ -59,7 +47,7 @@ namespace EMC_SW.DataHandlers
 
         public virtual void Close()
         {
-            stopped = true;
+            //stopped = true;
         }
 
         public virtual void SendingData(byte[] buffer)

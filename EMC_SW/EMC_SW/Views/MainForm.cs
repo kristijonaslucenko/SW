@@ -29,7 +29,7 @@ namespace EMC_SW
         TaskLUP RequestDisplayState = null;
         TaskLUP RequestUsbHostStatus = null;
         TaskLUP ReturnLcdToNormalMode = null;
-        TaskLUP StopUsbWriting = null;
+        TaskLUP UsbControlTask = null;
 
         public MainForm()
         {
@@ -50,9 +50,6 @@ namespace EMC_SW
                 USBdeviceComBox.Items.Add(s);
             }
 
-            RS232controller.SampleSize = 1024;
-            RS232controller.SentSampleSize = 1024;
-            //RS485controller.SampleSize = 10;
         }
 
         private void RS232startBtn_Click(object sender, EventArgs e)
@@ -114,21 +111,21 @@ namespace EMC_SW
             CallingTask = new TaskLUP
             {
                 AddedTask = EmcProtocol.Call.Create(),
-                id = GenConstants.GenConstants.CallingTaskId,
+                id = GenConstants.GenConstants.CallTaskId,
                 Repetition = 10,
                 IsContinuous = true
             };
 
-            StopUsbWriting = new TaskLUP
+            UsbControlTask = new TaskLUP
             {
                 AddedTask = null,
-                id = GenConstants.GenConstants.StopUsbWritingTaskId,
+                id = GenConstants.GenConstants.ControlUsbHostTaskId,
                 Repetition = 0,
                 IsContinuous = false
             };
             RS232controller.TaskQueueSize = 2;
             RS232controller.MyTasker.CreateTask(CallingTask);
-            RS232controller.MyTasker.CreateTask(StopUsbWriting);
+            RS232controller.MyTasker.CreateTask(UsbControlTask);
             RS232controller.MyTasker.InitiateTaskProcessing();
             //RS232controller.MyTasker.ProcessTasks();
             //Debug.Print();

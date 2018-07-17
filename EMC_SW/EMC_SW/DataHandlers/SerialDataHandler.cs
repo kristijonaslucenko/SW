@@ -49,6 +49,7 @@ namespace EMC_SW.DataHandlers
             byte[] buffer = new byte[BufferSize];
             try
             {
+                if(_serialPort.BytesToRead >= 7) { }
                 _serialPort.Read(buffer, 0, buffer.Length);
             }
             catch (TimeoutException)

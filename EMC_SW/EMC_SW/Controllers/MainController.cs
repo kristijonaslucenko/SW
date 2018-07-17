@@ -20,49 +20,23 @@ namespace EMC_SW.Controllers
             private set;
         }
 
-        public Sample CurrentSample
+        public TransmissionRecord TransmissionResults
         {
             get
             {
-                return DataHandler.ReadSample;
+                return DataHandler.TransmissionResults;
             }
         }
 
-        public Sample SentSample
+        public int TransmissionResultsSize
         {
             get
             {
-                return DataHandler.SentSample;
-            }
-        }
-
-        public int CurrentSampleRate
-        {
-            get;
-            private set;
-        }
-
-        public int SampleSize
-        {
-            get
-            {
-                return DataHandler.ReadSample.Limit;
+                return DataHandler.TransmissionResults.Limit;
             }
             set
             {
-                DataHandler.ReadSample.Limit = value;
-            }
-        }
-
-        public int SentSampleSize
-        {
-            get
-            {
-                return DataHandler.SentSample.Limit;
-            }
-            set
-            {
-                DataHandler.SentSample.Limit = value;
+                DataHandler.TransmissionResults.Limit = value;
             }
         }
 

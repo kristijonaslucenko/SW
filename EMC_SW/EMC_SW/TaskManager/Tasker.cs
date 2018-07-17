@@ -39,51 +39,54 @@ namespace EMC_SW.TaskManager
         private void ProcessTasks()
         {
 
-                int queueCount = LupTaskQueue.CountEntries();
-                TaskLUP FirstQueueTask;
-                
+            int queueCount = LupTaskQueue.CountEntries();
+            TaskLUP FirstQueueTask;
+
             while (LupTaskQueue.Peek(out FirstQueueTask))
-                {
+            {
                 int taskId = FirstQueueTask.id;
 
-                    switch (taskId)
-                    {
-                        // GenConstants.GenConstants.CallingTaskId
-                        case 1:
-                                Processor.ProcessCallTask(FirstQueueTask);
-                                LupTaskQueue.Dequeue();
-                                //queueCount = 0;
-                            break;
-                        //InitiateUsbWritingId
-                        case 2:
-                            
+                switch (taskId)
+                {
+                    // CallTaskId
+                    case 1:
+                        Processor.ProcessCallTask(FirstQueueTask);
+                        LupTaskQueue.Dequeue();
+                        if (FirstQueueTask.IsContinuous)
+                        {
+                            LupTaskQueue.Enqueue(FirstQueueTask);
+                        }
+                        break;
+                    //ControlDisplayTaskId
+                    case 2:
+                        Processor.ProcessControlUsbHostTask(FirstQueueTask);
+                        LupTaskQueue.Dequeue();
+                        if (FirstQueueTask.IsContinuous)
+                        {
+                            LupTaskQueue.Enqueue(FirstQueueTask);
+                        }
+                        break;
+                    case 3:
+                        //ControlUsbHostTaskId
 
-                            break;
-                        case 3:
-                            //RequestLastSeenKeyTaskId
+                        break;
+                    //RequestLastSeenKeyTaskId
+                    case 4:
 
-                            break;
-                        //RequestDisplayStateTaskId
-                        case 4:
+                        break;
+                    //RequestDisplayStateTaskId
+                    case 5:
 
-                            break;
-                        //RequestUsbHostStatusTaskId
-                        case 5:
-
-                            break;
-                        //ReturnLcdToNormalModeTaskId
-                        case 6:
-
-                            break;
-                        //StopUsbWritingTaskId
-                        case 7:
+                        break;
+                    //RequestUsbHostStatusTaskId
+                    case 6:
                         LupTaskQueue.Dequeue();
                         break;
-                        default:
+                    default:
 
-                            break;
-                    }
+                        break;
                 }
+            }
         }
         /*Thread;
         Conqurent queue,
