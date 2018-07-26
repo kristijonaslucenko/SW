@@ -44,20 +44,20 @@ namespace EMC_SW.Controllers
         {
             get
             {
-                return MyTasker.LupTaskQueue.Limit;
+                return TaskManager.LupTaskQueue.Limit;
             }
             set
             {
-                MyTasker.LupTaskQueue.Limit = value;
+                TaskManager.LupTaskQueue.Limit = value;
             }
         }
 
-        public Tasker MyTasker { get; private set; }
+        public Tasker TaskManager { get; private set; }
 
         public MainController()
         {
             DataHandler = new SerialDataHandler();
-            MyTasker = new Tasker(DataHandler);
+            TaskManager = new Tasker(DataHandler);
         }
 
         public void Start(String port)

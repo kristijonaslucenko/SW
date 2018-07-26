@@ -85,12 +85,18 @@
             this.RS232comBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.UsbHostStatusText = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.CtrlStopAllBtn = new System.Windows.Forms.Button();
             this.CtrlResetAllBtn = new System.Windows.Forms.Button();
             this.CtrlStartAllBtn = new System.Windows.Forms.Button();
@@ -103,17 +109,17 @@
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.USBdeviceStopBtn = new System.Windows.Forms.Button();
-            this.USBresetStartBtn = new System.Windows.Forms.Button();
-            this.USBdeviceStartBtn = new System.Windows.Forms.Button();
+            this.USBdev2StopBtn = new System.Windows.Forms.Button();
+            this.USBdev2ResetBtn = new System.Windows.Forms.Button();
+            this.USBdev2StartBtn = new System.Windows.Forms.Button();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.USBhostStopBtn = new System.Windows.Forms.Button();
-            this.USBhostResetBtn = new System.Windows.Forms.Button();
-            this.USBhostStartBtn = new System.Windows.Forms.Button();
+            this.USBdev1StopBtn = new System.Windows.Forms.Button();
+            this.USBdev1ResetBtn = new System.Windows.Forms.Button();
+            this.USBdev1StartBtn = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -145,6 +151,12 @@
             this.textBox21 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.GUIrefreshTimer = new System.Windows.Forms.Timer(this.components);
+            this.keyPressCountTextBox = new System.Windows.Forms.TextBox();
+            this.lastKeyPressedTextBox = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.displayStatusTextBox = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -711,12 +723,18 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.UsbHostStatusText);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.label19);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.groupBox6);
-            this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.CtrlStopAllBtn);
             this.groupBox3.Controls.Add(this.CtrlResetAllBtn);
             this.groupBox3.Controls.Add(this.CtrlStartAllBtn);
@@ -729,17 +747,17 @@
             this.groupBox3.Controls.Add(this.textBox15);
             this.groupBox3.Controls.Add(this.textBox16);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.USBdeviceStopBtn);
-            this.groupBox3.Controls.Add(this.USBresetStartBtn);
-            this.groupBox3.Controls.Add(this.USBdeviceStartBtn);
+            this.groupBox3.Controls.Add(this.USBdev2StopBtn);
+            this.groupBox3.Controls.Add(this.USBdev2ResetBtn);
+            this.groupBox3.Controls.Add(this.USBdev2StartBtn);
             this.groupBox3.Controls.Add(this.textBox9);
             this.groupBox3.Controls.Add(this.textBox10);
             this.groupBox3.Controls.Add(this.textBox11);
             this.groupBox3.Controls.Add(this.textBox12);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.USBhostStopBtn);
-            this.groupBox3.Controls.Add(this.USBhostResetBtn);
-            this.groupBox3.Controls.Add(this.USBhostStartBtn);
+            this.groupBox3.Controls.Add(this.USBdev1StopBtn);
+            this.groupBox3.Controls.Add(this.USBdev1ResetBtn);
+            this.groupBox3.Controls.Add(this.USBdev1StartBtn);
             this.groupBox3.Controls.Add(this.textBox5);
             this.groupBox3.Controls.Add(this.textBox6);
             this.groupBox3.Controls.Add(this.textBox7);
@@ -762,15 +780,85 @@
             this.groupBox3.Controls.Add(this.RS232textboxT);
             this.groupBox3.Location = new System.Drawing.Point(556, 25);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(422, 360);
+            this.groupBox3.Size = new System.Drawing.Size(422, 369);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "COM Control";
             // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(210, 297);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(52, 20);
+            this.textBox2.TabIndex = 64;
+            this.textBox2.Text = " ";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(38, 297);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(52, 20);
+            this.textBox3.TabIndex = 63;
+            this.textBox3.Text = " ";
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(35, 281);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(66, 13);
+            this.label10.TabIndex = 62;
+            this.label10.Text = "USB Host M";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(210, 258);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(52, 20);
+            this.textBox1.TabIndex = 61;
+            this.textBox1.Text = " ";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // UsbHostStatusText
+            // 
+            this.UsbHostStatusText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsbHostStatusText.Location = new System.Drawing.Point(38, 258);
+            this.UsbHostStatusText.Name = "UsbHostStatusText";
+            this.UsbHostStatusText.ReadOnly = true;
+            this.UsbHostStatusText.Size = new System.Drawing.Size(52, 20);
+            this.UsbHostStatusText.TabIndex = 60;
+            this.UsbHostStatusText.Text = " ";
+            this.UsbHostStatusText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(35, 242);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.TabIndex = 59;
+            this.label6.Text = "USB Host";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Location = new System.Drawing.Point(39, 315);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(374, 10);
+            this.groupBox4.TabIndex = 58;
+            this.groupBox4.TabStop = false;
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(226, 29);
+            this.label19.Location = new System.Drawing.Point(226, 20);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(14, 13);
             this.label19.TabIndex = 57;
@@ -780,7 +868,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(169, 29);
+            this.label18.Location = new System.Drawing.Point(169, 20);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(16, 13);
             this.label18.TabIndex = 56;
@@ -790,7 +878,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(111, 29);
+            this.label17.Location = new System.Drawing.Point(111, 20);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(15, 13);
             this.label17.TabIndex = 55;
@@ -800,7 +888,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(56, 29);
+            this.label16.Location = new System.Drawing.Point(56, 20);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(14, 13);
             this.label16.TabIndex = 54;
@@ -809,23 +897,15 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Location = new System.Drawing.Point(37, 38);
+            this.groupBox6.Location = new System.Drawing.Point(37, 29);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(374, 10);
             this.groupBox6.TabIndex = 53;
             this.groupBox6.TabStop = false;
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Location = new System.Drawing.Point(56, 296);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(360, 10);
-            this.groupBox4.TabIndex = 52;
-            this.groupBox4.TabStop = false;
-            // 
             // CtrlStopAllBtn
             // 
-            this.CtrlStopAllBtn.Location = new System.Drawing.Point(342, 315);
+            this.CtrlStopAllBtn.Location = new System.Drawing.Point(342, 334);
             this.CtrlStopAllBtn.Name = "CtrlStopAllBtn";
             this.CtrlStopAllBtn.Size = new System.Drawing.Size(75, 23);
             this.CtrlStopAllBtn.TabIndex = 51;
@@ -834,7 +914,7 @@
             // 
             // CtrlResetAllBtn
             // 
-            this.CtrlResetAllBtn.Location = new System.Drawing.Point(261, 315);
+            this.CtrlResetAllBtn.Location = new System.Drawing.Point(261, 334);
             this.CtrlResetAllBtn.Name = "CtrlResetAllBtn";
             this.CtrlResetAllBtn.Size = new System.Drawing.Size(75, 23);
             this.CtrlResetAllBtn.TabIndex = 50;
@@ -843,7 +923,7 @@
             // 
             // CtrlStartAllBtn
             // 
-            this.CtrlStartAllBtn.Location = new System.Drawing.Point(180, 315);
+            this.CtrlStartAllBtn.Location = new System.Drawing.Point(180, 334);
             this.CtrlStartAllBtn.Name = "CtrlStartAllBtn";
             this.CtrlStartAllBtn.Size = new System.Drawing.Size(75, 23);
             this.CtrlStartAllBtn.TabIndex = 49;
@@ -853,43 +933,46 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(34, 211);
+            this.label5.Location = new System.Drawing.Point(34, 202);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 13);
+            this.label5.Size = new System.Drawing.Size(101, 13);
             this.label5.TabIndex = 40;
-            this.label5.Text = "USB Host Modem";
+            this.label5.Text = "Modem RS232 TTL";
             // 
             // USBmodemStopBtn
             // 
-            this.USBmodemStopBtn.Location = new System.Drawing.Point(371, 227);
+            this.USBmodemStopBtn.Location = new System.Drawing.Point(371, 218);
             this.USBmodemStopBtn.Name = "USBmodemStopBtn";
             this.USBmodemStopBtn.Size = new System.Drawing.Size(45, 23);
             this.USBmodemStopBtn.TabIndex = 39;
             this.USBmodemStopBtn.Text = "Stop";
             this.USBmodemStopBtn.UseVisualStyleBackColor = true;
+            this.USBmodemStopBtn.Click += new System.EventHandler(this.USBmodemStopBtn_Click);
             // 
             // USBmodemResetBtn
             // 
-            this.USBmodemResetBtn.Location = new System.Drawing.Point(320, 227);
+            this.USBmodemResetBtn.Location = new System.Drawing.Point(320, 218);
             this.USBmodemResetBtn.Name = "USBmodemResetBtn";
             this.USBmodemResetBtn.Size = new System.Drawing.Size(45, 23);
             this.USBmodemResetBtn.TabIndex = 38;
             this.USBmodemResetBtn.Text = "Reset";
             this.USBmodemResetBtn.UseVisualStyleBackColor = true;
+            this.USBmodemResetBtn.Click += new System.EventHandler(this.USBmodemResetBtn_Click);
             // 
             // USBmodemStartBtn
             // 
-            this.USBmodemStartBtn.Location = new System.Drawing.Point(269, 227);
+            this.USBmodemStartBtn.Location = new System.Drawing.Point(269, 218);
             this.USBmodemStartBtn.Name = "USBmodemStartBtn";
             this.USBmodemStartBtn.Size = new System.Drawing.Size(45, 23);
             this.USBmodemStartBtn.TabIndex = 37;
             this.USBmodemStartBtn.Text = "Start";
             this.USBmodemStartBtn.UseVisualStyleBackColor = true;
+            this.USBmodemStartBtn.Click += new System.EventHandler(this.USBmodemStartBtn_Click);
             // 
             // textBox13
             // 
             this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.Location = new System.Drawing.Point(211, 229);
+            this.textBox13.Location = new System.Drawing.Point(211, 220);
             this.textBox13.Name = "textBox13";
             this.textBox13.ReadOnly = true;
             this.textBox13.Size = new System.Drawing.Size(52, 20);
@@ -900,7 +983,7 @@
             // textBox14
             // 
             this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.Location = new System.Drawing.Point(154, 229);
+            this.textBox14.Location = new System.Drawing.Point(154, 220);
             this.textBox14.Name = "textBox14";
             this.textBox14.ReadOnly = true;
             this.textBox14.Size = new System.Drawing.Size(52, 20);
@@ -911,7 +994,7 @@
             // textBox15
             // 
             this.textBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox15.Location = new System.Drawing.Point(96, 229);
+            this.textBox15.Location = new System.Drawing.Point(96, 220);
             this.textBox15.Name = "textBox15";
             this.textBox15.ReadOnly = true;
             this.textBox15.Size = new System.Drawing.Size(52, 20);
@@ -922,7 +1005,7 @@
             // textBox16
             // 
             this.textBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox16.Location = new System.Drawing.Point(38, 229);
+            this.textBox16.Location = new System.Drawing.Point(38, 220);
             this.textBox16.Name = "textBox16";
             this.textBox16.ReadOnly = true;
             this.textBox16.Size = new System.Drawing.Size(52, 20);
@@ -933,43 +1016,46 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 171);
+            this.label4.Location = new System.Drawing.Point(34, 162);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.Size = new System.Drawing.Size(135, 13);
             this.label4.TabIndex = 32;
-            this.label4.Text = "USB Device";
+            this.label4.Text = "Serial over USB Device #2";
             // 
-            // USBdeviceStopBtn
+            // USBdev2StopBtn
             // 
-            this.USBdeviceStopBtn.Location = new System.Drawing.Point(370, 187);
-            this.USBdeviceStopBtn.Name = "USBdeviceStopBtn";
-            this.USBdeviceStopBtn.Size = new System.Drawing.Size(45, 23);
-            this.USBdeviceStopBtn.TabIndex = 31;
-            this.USBdeviceStopBtn.Text = "Stop";
-            this.USBdeviceStopBtn.UseVisualStyleBackColor = true;
+            this.USBdev2StopBtn.Location = new System.Drawing.Point(370, 178);
+            this.USBdev2StopBtn.Name = "USBdev2StopBtn";
+            this.USBdev2StopBtn.Size = new System.Drawing.Size(45, 23);
+            this.USBdev2StopBtn.TabIndex = 31;
+            this.USBdev2StopBtn.Text = "Stop";
+            this.USBdev2StopBtn.UseVisualStyleBackColor = true;
+            this.USBdev2StopBtn.Click += new System.EventHandler(this.USBdev2StopBtn_Click);
             // 
-            // USBresetStartBtn
+            // USBdev2ResetBtn
             // 
-            this.USBresetStartBtn.Location = new System.Drawing.Point(319, 187);
-            this.USBresetStartBtn.Name = "USBresetStartBtn";
-            this.USBresetStartBtn.Size = new System.Drawing.Size(45, 23);
-            this.USBresetStartBtn.TabIndex = 30;
-            this.USBresetStartBtn.Text = "Reset";
-            this.USBresetStartBtn.UseVisualStyleBackColor = true;
+            this.USBdev2ResetBtn.Location = new System.Drawing.Point(319, 178);
+            this.USBdev2ResetBtn.Name = "USBdev2ResetBtn";
+            this.USBdev2ResetBtn.Size = new System.Drawing.Size(45, 23);
+            this.USBdev2ResetBtn.TabIndex = 30;
+            this.USBdev2ResetBtn.Text = "Reset";
+            this.USBdev2ResetBtn.UseVisualStyleBackColor = true;
+            this.USBdev2ResetBtn.Click += new System.EventHandler(this.USBdev2ResetBtn_Click);
             // 
-            // USBdeviceStartBtn
+            // USBdev2StartBtn
             // 
-            this.USBdeviceStartBtn.Location = new System.Drawing.Point(268, 187);
-            this.USBdeviceStartBtn.Name = "USBdeviceStartBtn";
-            this.USBdeviceStartBtn.Size = new System.Drawing.Size(45, 23);
-            this.USBdeviceStartBtn.TabIndex = 29;
-            this.USBdeviceStartBtn.Text = "Start";
-            this.USBdeviceStartBtn.UseVisualStyleBackColor = true;
+            this.USBdev2StartBtn.Location = new System.Drawing.Point(268, 178);
+            this.USBdev2StartBtn.Name = "USBdev2StartBtn";
+            this.USBdev2StartBtn.Size = new System.Drawing.Size(45, 23);
+            this.USBdev2StartBtn.TabIndex = 29;
+            this.USBdev2StartBtn.Text = "Start";
+            this.USBdev2StartBtn.UseVisualStyleBackColor = true;
+            this.USBdev2StartBtn.Click += new System.EventHandler(this.USBdev2StartBtn_Click);
             // 
             // textBox9
             // 
             this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(210, 189);
+            this.textBox9.Location = new System.Drawing.Point(210, 180);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
             this.textBox9.Size = new System.Drawing.Size(52, 20);
@@ -980,7 +1066,7 @@
             // textBox10
             // 
             this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(153, 189);
+            this.textBox10.Location = new System.Drawing.Point(153, 180);
             this.textBox10.Name = "textBox10";
             this.textBox10.ReadOnly = true;
             this.textBox10.Size = new System.Drawing.Size(52, 20);
@@ -991,7 +1077,7 @@
             // textBox11
             // 
             this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(95, 189);
+            this.textBox11.Location = new System.Drawing.Point(95, 180);
             this.textBox11.Name = "textBox11";
             this.textBox11.ReadOnly = true;
             this.textBox11.Size = new System.Drawing.Size(52, 20);
@@ -1002,7 +1088,7 @@
             // textBox12
             // 
             this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(37, 189);
+            this.textBox12.Location = new System.Drawing.Point(37, 180);
             this.textBox12.Name = "textBox12";
             this.textBox12.ReadOnly = true;
             this.textBox12.Size = new System.Drawing.Size(52, 20);
@@ -1013,43 +1099,46 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 131);
+            this.label3.Location = new System.Drawing.Point(34, 122);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.Size = new System.Drawing.Size(135, 13);
             this.label3.TabIndex = 24;
-            this.label3.Text = "USB Host";
+            this.label3.Text = "Serial over USB Device #1";
             // 
-            // USBhostStopBtn
+            // USBdev1StopBtn
             // 
-            this.USBhostStopBtn.Location = new System.Drawing.Point(370, 147);
-            this.USBhostStopBtn.Name = "USBhostStopBtn";
-            this.USBhostStopBtn.Size = new System.Drawing.Size(45, 23);
-            this.USBhostStopBtn.TabIndex = 23;
-            this.USBhostStopBtn.Text = "Stop";
-            this.USBhostStopBtn.UseVisualStyleBackColor = true;
+            this.USBdev1StopBtn.Location = new System.Drawing.Point(370, 138);
+            this.USBdev1StopBtn.Name = "USBdev1StopBtn";
+            this.USBdev1StopBtn.Size = new System.Drawing.Size(45, 23);
+            this.USBdev1StopBtn.TabIndex = 23;
+            this.USBdev1StopBtn.Text = "Stop";
+            this.USBdev1StopBtn.UseVisualStyleBackColor = true;
+            this.USBdev1StopBtn.Click += new System.EventHandler(this.USBdev1StopBtn_Click);
             // 
-            // USBhostResetBtn
+            // USBdev1ResetBtn
             // 
-            this.USBhostResetBtn.Location = new System.Drawing.Point(319, 147);
-            this.USBhostResetBtn.Name = "USBhostResetBtn";
-            this.USBhostResetBtn.Size = new System.Drawing.Size(45, 23);
-            this.USBhostResetBtn.TabIndex = 22;
-            this.USBhostResetBtn.Text = "Reset";
-            this.USBhostResetBtn.UseVisualStyleBackColor = true;
+            this.USBdev1ResetBtn.Location = new System.Drawing.Point(319, 138);
+            this.USBdev1ResetBtn.Name = "USBdev1ResetBtn";
+            this.USBdev1ResetBtn.Size = new System.Drawing.Size(45, 23);
+            this.USBdev1ResetBtn.TabIndex = 22;
+            this.USBdev1ResetBtn.Text = "Reset";
+            this.USBdev1ResetBtn.UseVisualStyleBackColor = true;
+            this.USBdev1ResetBtn.Click += new System.EventHandler(this.USBdev1ResetBtn_Click);
             // 
-            // USBhostStartBtn
+            // USBdev1StartBtn
             // 
-            this.USBhostStartBtn.Location = new System.Drawing.Point(268, 147);
-            this.USBhostStartBtn.Name = "USBhostStartBtn";
-            this.USBhostStartBtn.Size = new System.Drawing.Size(45, 23);
-            this.USBhostStartBtn.TabIndex = 21;
-            this.USBhostStartBtn.Text = "Start";
-            this.USBhostStartBtn.UseVisualStyleBackColor = true;
+            this.USBdev1StartBtn.Location = new System.Drawing.Point(268, 138);
+            this.USBdev1StartBtn.Name = "USBdev1StartBtn";
+            this.USBdev1StartBtn.Size = new System.Drawing.Size(45, 23);
+            this.USBdev1StartBtn.TabIndex = 21;
+            this.USBdev1StartBtn.Text = "Start";
+            this.USBdev1StartBtn.UseVisualStyleBackColor = true;
+            this.USBdev1StartBtn.Click += new System.EventHandler(this.USBdev1StartBtn_Click);
             // 
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(210, 149);
+            this.textBox5.Location = new System.Drawing.Point(210, 140);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(52, 20);
@@ -1060,7 +1149,7 @@
             // textBox6
             // 
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(153, 149);
+            this.textBox6.Location = new System.Drawing.Point(153, 140);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(52, 20);
@@ -1071,7 +1160,7 @@
             // textBox7
             // 
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(95, 149);
+            this.textBox7.Location = new System.Drawing.Point(95, 140);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(52, 20);
@@ -1082,7 +1171,7 @@
             // textBox8
             // 
             this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(37, 149);
+            this.textBox8.Location = new System.Drawing.Point(37, 140);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(52, 20);
@@ -1093,7 +1182,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 91);
+            this.label2.Location = new System.Drawing.Point(34, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 16;
@@ -1101,25 +1190,27 @@
             // 
             // RS485stopBtn
             // 
-            this.RS485stopBtn.Location = new System.Drawing.Point(370, 107);
+            this.RS485stopBtn.Location = new System.Drawing.Point(370, 98);
             this.RS485stopBtn.Name = "RS485stopBtn";
             this.RS485stopBtn.Size = new System.Drawing.Size(45, 23);
             this.RS485stopBtn.TabIndex = 15;
             this.RS485stopBtn.Text = "Stop";
             this.RS485stopBtn.UseVisualStyleBackColor = true;
+            this.RS485stopBtn.Click += new System.EventHandler(this.RS485stopBtn_Click);
             // 
             // RS485resetBtn
             // 
-            this.RS485resetBtn.Location = new System.Drawing.Point(319, 107);
+            this.RS485resetBtn.Location = new System.Drawing.Point(319, 98);
             this.RS485resetBtn.Name = "RS485resetBtn";
             this.RS485resetBtn.Size = new System.Drawing.Size(45, 23);
             this.RS485resetBtn.TabIndex = 14;
             this.RS485resetBtn.Text = "Reset";
             this.RS485resetBtn.UseVisualStyleBackColor = true;
+            this.RS485resetBtn.Click += new System.EventHandler(this.RS485resetBtn_Click);
             // 
             // RS485startBtn
             // 
-            this.RS485startBtn.Location = new System.Drawing.Point(268, 107);
+            this.RS485startBtn.Location = new System.Drawing.Point(268, 98);
             this.RS485startBtn.Name = "RS485startBtn";
             this.RS485startBtn.Size = new System.Drawing.Size(45, 23);
             this.RS485startBtn.TabIndex = 13;
@@ -1130,7 +1221,7 @@
             // RS485textboxE
             // 
             this.RS485textboxE.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RS485textboxE.Location = new System.Drawing.Point(210, 109);
+            this.RS485textboxE.Location = new System.Drawing.Point(210, 100);
             this.RS485textboxE.Name = "RS485textboxE";
             this.RS485textboxE.ReadOnly = true;
             this.RS485textboxE.Size = new System.Drawing.Size(52, 20);
@@ -1141,7 +1232,7 @@
             // RS485textboxM
             // 
             this.RS485textboxM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RS485textboxM.Location = new System.Drawing.Point(153, 109);
+            this.RS485textboxM.Location = new System.Drawing.Point(153, 100);
             this.RS485textboxM.Name = "RS485textboxM";
             this.RS485textboxM.ReadOnly = true;
             this.RS485textboxM.Size = new System.Drawing.Size(52, 20);
@@ -1152,7 +1243,7 @@
             // RS485textboxR
             // 
             this.RS485textboxR.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RS485textboxR.Location = new System.Drawing.Point(95, 109);
+            this.RS485textboxR.Location = new System.Drawing.Point(95, 100);
             this.RS485textboxR.Name = "RS485textboxR";
             this.RS485textboxR.ReadOnly = true;
             this.RS485textboxR.Size = new System.Drawing.Size(52, 20);
@@ -1163,7 +1254,7 @@
             // RS485textboxT
             // 
             this.RS485textboxT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RS485textboxT.Location = new System.Drawing.Point(37, 109);
+            this.RS485textboxT.Location = new System.Drawing.Point(37, 100);
             this.RS485textboxT.Name = "RS485textboxT";
             this.RS485textboxT.ReadOnly = true;
             this.RS485textboxT.Size = new System.Drawing.Size(52, 20);
@@ -1174,7 +1265,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 51);
+            this.label1.Location = new System.Drawing.Point(34, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 8;
@@ -1182,25 +1273,27 @@
             // 
             // RS232stopBtn
             // 
-            this.RS232stopBtn.Location = new System.Drawing.Point(370, 67);
+            this.RS232stopBtn.Location = new System.Drawing.Point(370, 58);
             this.RS232stopBtn.Name = "RS232stopBtn";
             this.RS232stopBtn.Size = new System.Drawing.Size(45, 23);
             this.RS232stopBtn.TabIndex = 7;
             this.RS232stopBtn.Text = "Stop";
             this.RS232stopBtn.UseVisualStyleBackColor = true;
+            this.RS232stopBtn.Click += new System.EventHandler(this.RS232stopBtn_Click);
             // 
             // RS232resetBtn
             // 
-            this.RS232resetBtn.Location = new System.Drawing.Point(319, 67);
+            this.RS232resetBtn.Location = new System.Drawing.Point(319, 58);
             this.RS232resetBtn.Name = "RS232resetBtn";
             this.RS232resetBtn.Size = new System.Drawing.Size(45, 23);
             this.RS232resetBtn.TabIndex = 6;
             this.RS232resetBtn.Text = "Reset";
             this.RS232resetBtn.UseVisualStyleBackColor = true;
+            this.RS232resetBtn.Click += new System.EventHandler(this.RS232resetBtn_Click);
             // 
             // RS232startBtn
             // 
-            this.RS232startBtn.Location = new System.Drawing.Point(268, 67);
+            this.RS232startBtn.Location = new System.Drawing.Point(268, 58);
             this.RS232startBtn.Name = "RS232startBtn";
             this.RS232startBtn.Size = new System.Drawing.Size(45, 23);
             this.RS232startBtn.TabIndex = 5;
@@ -1211,7 +1304,7 @@
             // RS232textboxE
             // 
             this.RS232textboxE.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RS232textboxE.Location = new System.Drawing.Point(210, 69);
+            this.RS232textboxE.Location = new System.Drawing.Point(210, 60);
             this.RS232textboxE.Name = "RS232textboxE";
             this.RS232textboxE.ReadOnly = true;
             this.RS232textboxE.Size = new System.Drawing.Size(52, 20);
@@ -1222,7 +1315,7 @@
             // RS232textboxM
             // 
             this.RS232textboxM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RS232textboxM.Location = new System.Drawing.Point(153, 69);
+            this.RS232textboxM.Location = new System.Drawing.Point(153, 60);
             this.RS232textboxM.Name = "RS232textboxM";
             this.RS232textboxM.ReadOnly = true;
             this.RS232textboxM.Size = new System.Drawing.Size(52, 20);
@@ -1233,7 +1326,7 @@
             // RS232textboxR
             // 
             this.RS232textboxR.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RS232textboxR.Location = new System.Drawing.Point(95, 69);
+            this.RS232textboxR.Location = new System.Drawing.Point(95, 60);
             this.RS232textboxR.Name = "RS232textboxR";
             this.RS232textboxR.ReadOnly = true;
             this.RS232textboxR.Size = new System.Drawing.Size(52, 20);
@@ -1244,7 +1337,7 @@
             // RS232textboxT
             // 
             this.RS232textboxT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RS232textboxT.Location = new System.Drawing.Point(37, 69);
+            this.RS232textboxT.Location = new System.Drawing.Point(37, 60);
             this.RS232textboxT.Name = "RS232textboxT";
             this.RS232textboxT.ReadOnly = true;
             this.RS232textboxT.Size = new System.Drawing.Size(52, 20);
@@ -1355,11 +1448,77 @@
             // 
             this.GUIrefreshTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // keyPressCountTextBox
+            // 
+            this.keyPressCountTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.keyPressCountTextBox.Location = new System.Drawing.Point(147, 532);
+            this.keyPressCountTextBox.Name = "keyPressCountTextBox";
+            this.keyPressCountTextBox.ReadOnly = true;
+            this.keyPressCountTextBox.Size = new System.Drawing.Size(52, 20);
+            this.keyPressCountTextBox.TabIndex = 70;
+            this.keyPressCountTextBox.Text = " ";
+            this.keyPressCountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lastKeyPressedTextBox
+            // 
+            this.lastKeyPressedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastKeyPressedTextBox.Location = new System.Drawing.Point(35, 532);
+            this.lastKeyPressedTextBox.Name = "lastKeyPressedTextBox";
+            this.lastKeyPressedTextBox.ReadOnly = true;
+            this.lastKeyPressedTextBox.Size = new System.Drawing.Size(52, 20);
+            this.lastKeyPressedTextBox.TabIndex = 69;
+            this.lastKeyPressedTextBox.Text = " ";
+            this.lastKeyPressedTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(32, 516);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(89, 13);
+            this.label24.TabIndex = 68;
+            this.label24.Text = "Last Key Pressed";
+            // 
+            // displayStatusTextBox
+            // 
+            this.displayStatusTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.displayStatusTextBox.Location = new System.Drawing.Point(35, 493);
+            this.displayStatusTextBox.Name = "displayStatusTextBox";
+            this.displayStatusTextBox.ReadOnly = true;
+            this.displayStatusTextBox.Size = new System.Drawing.Size(98, 20);
+            this.displayStatusTextBox.TabIndex = 66;
+            this.displayStatusTextBox.Text = " ";
+            this.displayStatusTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(32, 477);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(74, 13);
+            this.label25.TabIndex = 65;
+            this.label25.Text = "Display Status";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(144, 516);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(85, 13);
+            this.label26.TabIndex = 71;
+            this.label26.Text = "Key Press Count";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.keyPressCountTextBox);
+            this.Controls.Add(this.lastKeyPressedTextBox);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.displayStatusTextBox);
+            this.Controls.Add(this.label25);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -1400,6 +1559,7 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1425,17 +1585,17 @@
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button USBdeviceStopBtn;
-        private System.Windows.Forms.Button USBresetStartBtn;
-        private System.Windows.Forms.Button USBdeviceStartBtn;
+        private System.Windows.Forms.Button USBdev2StopBtn;
+        private System.Windows.Forms.Button USBdev2ResetBtn;
+        private System.Windows.Forms.Button USBdev2StartBtn;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button USBhostStopBtn;
-        private System.Windows.Forms.Button USBhostResetBtn;
-        private System.Windows.Forms.Button USBhostStartBtn;
+        private System.Windows.Forms.Button USBdev1StopBtn;
+        private System.Windows.Forms.Button USBdev1ResetBtn;
+        private System.Windows.Forms.Button USBdev1StartBtn;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
@@ -1451,7 +1611,6 @@
         private System.Windows.Forms.Button CtrlStopAllBtn;
         private System.Windows.Forms.Button CtrlResetAllBtn;
         private System.Windows.Forms.Button CtrlStartAllBtn;
-        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ComboBox RS232comBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox USBhostComBox;
@@ -1521,6 +1680,19 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Timer GUIrefreshTimer;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox UsbHostStatusText;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox keyPressCountTextBox;
+        private System.Windows.Forms.TextBox lastKeyPressedTextBox;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox displayStatusTextBox;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
     }
 }
 

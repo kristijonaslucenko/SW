@@ -17,12 +17,30 @@ namespace EMC_SW.GenConstants
         public const byte StartByte = 0x58;
         public const byte StopByte = 0x59;
         public static readonly byte[] ErrorValue = new byte[] { 0x10, 0x11, 0x12, 0x13 };
-        public static int CallTaskId = 1;
-        public static int ControlDisplayTaskId = 2;
-        public static int ControlUsbHostTaskId = 3;
-        public static int RequestLastSeenKeyTaskId = 4;
-        public static int RequestDisplayStateTaskId = 5;
-        public static int RequestUsbHostStatusTaskId = 6;
-        public static int SerialReadTimeout = 200; //ms
+        public const int CallTaskId = 1;
+        public const int ControlDisplayTaskId = 2;
+        public const int ControlUsbHostTaskId = 3;
+        public const int RequestLastSeenKeyTaskId = 4;
+        public const int RequestDisplayStateTaskId = 5;
+        public const int RequestUsbHostStatusTaskId = 6;
+        public const int StopTaskId = 7;
+        public const int SerialReadTimeout = 200; //ms
+
+        public const int controlUsbHostResponseRWrunning = 1;
+        public const int controlUsbHostResponseNotAccessible = 2;
+        public const string controlUsbHostTextBoxValueRWRunning = "Running";
+        public const string controlUsbHostTextBoxValueNotAcc = "N/A";
+        public const int controlDisplayResponseNui = 0;
+        public const int controlDisplayResponseTui = 1;
+        public const string controlDisplayResponseNuiText = "Normal UI";
+        public const string controlDisplayResponseTuiText = "Test UI";
+        public const int requestedLastKeyNA = 0;
+        public const string requestedLastKeyNAtext = "N/A";
+        public const int keyPressStatusNoEv = 0;
+        public const string keyPressStatusNoEvText = "N/A";
+        public const int keyPressStatusPrNotRel = 1;
+        public const string keyPressStatusPrNotRelText = "Pressed, not released";
+        public const int keyPressStatusPrRel = 2;
+        public const string keyPressStatusPrRelText = "Pressed, released";
     }
 }
