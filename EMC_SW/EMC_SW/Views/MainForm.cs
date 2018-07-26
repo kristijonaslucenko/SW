@@ -32,7 +32,7 @@ namespace EMC_SW
 
         TaskLUP InitiateLCDinTestMode = null;
         TaskLUP InitiateUsbWriting = null;
-        TaskLUP CallingTask = null;
+        TaskLUP GenCallingTask = null;
         TaskLUP RequestLastSeenKey = null;
         TaskLUP RequestDisplayState = null;
         TaskLUP RequestUsbHostStatus = null;
@@ -49,22 +49,20 @@ namespace EMC_SW
             USBdev2Controller = new MainController();
             USBmodemController = new MainController();
 
-            localResultsRS232 = new LocalResults()
-            {
-                transmittedPackets = 0,
-                receivedPackets = 0,
-                missedPackets = 0,
-                errorsInTransmission = 0
-            };
+            localResultsRS232 = new LocalResults();
+            localResultsRS485 = new LocalResults();
+            localResultsDev1 = new LocalResults();
+            localResultsDev2 = new LocalResults();
+            localResultsModem = new LocalResults();
 
-            localResultsRS485 = new LocalResults()
-            {
-                transmittedPackets = 0,
-                receivedPackets = 0,
-                missedPackets = 0,
-                errorsInTransmission = 0
-            };
+            localResultsRS232.ZeroAll();
+            localResultsRS485.ZeroAll();
+            localResultsDev1.ZeroAll();
+            localResultsDev2.ZeroAll();
+            localResultsModem.ZeroAll();
 
+            baudrateComboBox.SelectedIndex = 4;
+            
             StopAllTask = new TaskLUP
             {
                 AddedTask = EmcProtocol.Call.Create(), //dummy
@@ -73,63 +71,78 @@ namespace EMC_SW
                 IsContinuous = false
             };
 
+            GenCallingTask = new TaskLUP
+            {
+                AddedTask = EmcProtocol.Call.Create(),
+                id = GenConstants.GenConstants.CallTaskId,
+                Repetition = 3,     //min 3
+                IsContinuous = true
+            };
+
             foreach (string s in System.IO.Ports.SerialPort.GetPortNames())
             {
                 RS232comBox.Items.Add(s);
                 RS485comBox.Items.Add(s);
                 USBmodemComBox.Items.Add(s);
-                USBhostComBox.Items.Add(s);
-                USBdeviceComBox.Items.Add(s);
+                USBdev1ComBox.Items.Add(s);
+                USBdev2ComBox.Items.Add(s);
+                /*RS232comBox.SelectedIndex = 5;
+                RS485comBox.SelectedIndex = 1;
+                USBdev1ComBox.SelectedIndex = 2;
+                USBdev2ComBox.SelectedIndex = 3;
+                USBmodemComBox.SelectedIndex = 4;*/
             }
 
         }
 
         private void RS232startBtn_Click(object sender, EventArgs e)
         {
+            RS232TaskInit();
             RS232controller.TaskManager.InitiateTaskProcessing();
         }
 
         private void RS485startBtn_Click(object sender, EventArgs e)
         {
+            RS485TaskInit();
             RS485controller.TaskManager.InitiateTaskProcessing();
         }
 
         private void COMconnectBtn_Click(object sender, EventArgs e)
         {
-            String RS232port = RS232comBox.GetItemText(RS232comBox.SelectedItem);
-            String RS485port = RS485comBox.GetItemText(RS485comBox.SelectedItem);
-            String USBhostPort = USBhostComBox.GetItemText(USBhostComBox.SelectedItem);
-            String USBdevicePort = USBdeviceComBox.GetItemText(USBdeviceComBox.SelectedItem);
-            String USBmodemPort = USBmodemComBox.GetItemText(USBmodemComBox.SelectedItem);
+            string RS232port = RS232comBox.GetItemText(RS232comBox.SelectedItem);
+            string RS485port = RS485comBox.GetItemText(RS485comBox.SelectedItem);
+            string USBdev1tPort = USBdev1ComBox.GetItemText(USBdev1ComBox.SelectedItem);
+            string USBdev2Port = USBdev2ComBox.GetItemText(USBdev2ComBox.SelectedItem);
+            string USBmodemPort = USBmodemComBox.GetItemText(USBmodemComBox.SelectedItem);
+            int userBaudrate = Int32.Parse(baudrateComboBox.GetItemText(baudrateComboBox.SelectedItem));
+             
 
             GUIrefreshTimer.Enabled = true;
 
             if (RS232port != "")
             {
-                RS232controller.Start(RS232port);
-
-
+                RS232controller.Start(RS232port, userBaudrate);
             }
 
             if (RS485port != "")
             {
-                RS485controller.Start(RS485port);
+                RS485controller.Start(RS485port, userBaudrate);
             }
-            /*
-            if (USBhostPort != "")
+            
+            if (USBdev1tPort != "")
             {
-                USBhostController.Start(USBhostPort);
+                USBdev1Controller.Start(USBdev1tPort, userBaudrate);
             }
 
-            if (USBdevicePort != "")
+            if (USBdev2Port != "")
             {
-                USBdeviceController.Start(USBdevicePort);
+                USBdev2Controller.Start(USBdev2Port, userBaudrate);
             }
 
             if (USBmodemPort != "")
             {
-                USBmodemController.Start(USBmodemPort);
-            }*/
+                USBmodemController.Start(USBmodemPort, userBaudrate);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -147,6 +160,45 @@ namespace EMC_SW
             RS232textboxR.Text = localResultsRS232.receivedPackets.ToString();
             RS232textboxM.Text = localResultsRS232.missedPackets.ToString();
             RS232textboxE.Text = localResultsRS232.errorsInTransmission.ToString();
+
+            while (USBdev1Controller.TransmissionResults.Peek(out Record LocalPeekedRecord))
+            {
+                localResultsDev1.transmittedPackets += LocalPeekedRecord.Transmitted;
+                localResultsDev1.receivedPackets += LocalPeekedRecord.Received;
+                localResultsDev1.missedPackets += LocalPeekedRecord.Missing;
+                localResultsDev1.errorsInTransmission += LocalPeekedRecord.Errors;
+                USBdev1Controller.TransmissionResults.Dequeue();
+            }
+            Dev1textboxT.Text = localResultsDev1.transmittedPackets.ToString();
+            Dev1textboxR.Text = localResultsDev1.receivedPackets.ToString();
+            Dev1textboxM.Text = localResultsDev1.missedPackets.ToString();
+            Dev1textboxE.Text = localResultsDev1.errorsInTransmission.ToString();
+
+            while (USBdev2Controller.TransmissionResults.Peek(out Record LocalPeekedRecord))
+            {
+                localResultsDev2.transmittedPackets += LocalPeekedRecord.Transmitted;
+                localResultsDev2.receivedPackets += LocalPeekedRecord.Received;
+                localResultsDev2.missedPackets += LocalPeekedRecord.Missing;
+                localResultsDev2.errorsInTransmission += LocalPeekedRecord.Errors;
+                USBdev2Controller.TransmissionResults.Dequeue();
+            }
+            Dev2textboxT.Text = localResultsDev2.transmittedPackets.ToString();
+            Dev2textboxR.Text = localResultsDev2.receivedPackets.ToString();
+            Dev2textboxM.Text = localResultsDev2.missedPackets.ToString();
+            Dev2textboxE.Text = localResultsDev2.errorsInTransmission.ToString();
+
+            while (USBmodemController.TransmissionResults.Peek(out Record LocalPeekedRecord))
+            {
+                localResultsModem.transmittedPackets += LocalPeekedRecord.Transmitted;
+                localResultsModem.receivedPackets += LocalPeekedRecord.Received;
+                localResultsModem.missedPackets += LocalPeekedRecord.Missing;
+                localResultsModem.errorsInTransmission += LocalPeekedRecord.Errors;
+                USBmodemController.TransmissionResults.Dequeue();
+            }
+            RS232TTLtextboxT.Text = localResultsModem.transmittedPackets.ToString();
+            RS232TTLtextboxR.Text = localResultsModem.receivedPackets.ToString();
+            RS232TTLtextboxM.Text = localResultsModem.missedPackets.ToString();
+            RS232TTLtextboxE.Text = localResultsModem.errorsInTransmission.ToString();
 
             while (RS485controller.TransmissionResults.Peek(out Record LocalPeekedRecord))
             {
@@ -179,7 +231,8 @@ namespace EMC_SW
                             if (localResultsRS485.controlDisplayResponse == GenConstants.GenConstants.controlDisplayResponseNui)
                             {
                                 displayStatusTextBox.Text = GenConstants.GenConstants.controlDisplayResponseNuiText;
-                            }else if(localResultsRS485.controlDisplayResponse == GenConstants.GenConstants.controlDisplayResponseTui)
+                            }
+                            else if (localResultsRS485.controlDisplayResponse == GenConstants.GenConstants.controlDisplayResponseTui)
                             {
                                 displayStatusTextBox.Text = GenConstants.GenConstants.controlDisplayResponseTuiText;
                             }
@@ -201,10 +254,47 @@ namespace EMC_SW
                                 localResultsRS485.keyCount++;
                                 if (localResultsRS485.keyPressStatus == GenConstants.GenConstants.keyPressStatusNoEv)
                                 {
-
+                                    keyPressEventText.Text = GenConstants.GenConstants.keyPressStatusNoEvText;
+                                }else if(localResultsRS485.keyPressStatus == GenConstants.GenConstants.keyPressStatusPrNotRel)
+                                {
+                                    keyPressEventText.Text = GenConstants.GenConstants.keyPressStatusPrNotRelText;
+                                }else if(localResultsRS485.keyPressStatus == GenConstants.GenConstants.keyPressStatusPrRel)
+                                {
+                                    keyPressEventText.Text = GenConstants.GenConstants.keyPressStatusPrRelText;
                                 }
                             }
-                            
+                            break;
+                        //RequestDisplayState
+                        case GenConstants.GenConstants.RequestDisplayStateTaskId:
+
+                            localResultsRS485.displayState = LocalPeekedRecord.Status;
+
+                            if (localResultsRS485.displayState == GenConstants.GenConstants.displayStateConnected)
+                            {
+                                displayConnStatusText.Text = GenConstants.GenConstants.displayStateConnectedText;
+                            }else if (localResultsRS485.displayState == GenConstants.GenConstants.displayStateNotConn)
+                            {
+                                displayConnStatusText.Text = GenConstants.GenConstants.displayStateNotConnText;
+                            }
+                            break;
+                        //RequestUsbHostStatus
+                        case GenConstants.GenConstants.RequestUsbHostStatusTaskId:
+
+                            localResultsRS485.usbHostStatus = LocalPeekedRecord.Status;
+                            localResultsRS485.usbHostErrorCount = LocalPeekedRecord.OpErrors;
+
+                            if(localResultsRS485.usbHostStatus == GenConstants.GenConstants.usbHostStatusNA)
+                            {
+                                UsbHostStatusText.Text = GenConstants.GenConstants.usbHostStatusNAtext;
+                            }else if(localResultsRS485.usbHostStatus == GenConstants.GenConstants.usbHostStatusNotAcc)
+                            {
+                                UsbHostStatusText.Text = GenConstants.GenConstants.usbHostStatusNotAccText;
+                            }else if(localResultsRS485.usbHostStatus == GenConstants.GenConstants.usbHostStatusRWrunn)
+                            {
+                                UsbHostStatusText.Text = GenConstants.GenConstants.usbHostStatusRWrunnText;
+                            }
+
+                            usbHostErrorCountText.Text = localResultsRS485.usbHostErrorCount.ToString();
                             break;
                     }
                 }
@@ -271,39 +361,14 @@ namespace EMC_SW
 
         private void RS232TaskInit()
         {
-            //min repetition is 3
-            CallingTask = new TaskLUP
-            {
-                AddedTask = EmcProtocol.Call.Create(),
-                id = GenConstants.GenConstants.CallTaskId,
-                Repetition = 3,
-                IsContinuous = true
-            };
-
-            UsbControlTask = new TaskLUP
-            {
-                AddedTask = null,
-                id = GenConstants.GenConstants.ControlUsbHostTaskId,
-                Repetition = 0,
-                IsContinuous = false
-            };
-
-            RS232controller.TaskQueueSize = 200; //deal with this one
-            RS232controller.TransmissionResultsSize = 200; //deal with this one
-            RS232controller.TaskManager.CreateTask(CallingTask);
+            RS232controller.TaskQueueSize = GenConstants.GenConstants.taskQueueSize; //deal with this one
+            RS232controller.TransmissionResultsSize = GenConstants.GenConstants.transmissionResultsSize; //deal with this one
+            RS232controller.TaskManager.CreateTask(GenCallingTask);
             //RS232controller.MyTasker.CreateTask(UsbControlTask);
         }
 
         private void RS485TaskInit()
         {
-            CallingTask = new TaskLUP
-            {
-                AddedTask = EmcProtocol.Call.Create(),
-                id = GenConstants.GenConstants.CallTaskId,
-                Repetition = 3,
-                IsContinuous = true
-            };
-
             UsbControlTask = new TaskLUP
             {
                 AddedTask = null,
@@ -311,40 +376,50 @@ namespace EMC_SW
                 Repetition = 0,
                 IsContinuous = false
             };
-            RS485controller.TaskQueueSize = 200; //deal with this one
-            RS485controller.TransmissionResultsSize = 200; //deal with this one
-            RS485controller.TaskManager.CreateTask(CallingTask);
+            RS485controller.TaskQueueSize = GenConstants.GenConstants.taskQueueSize; //deal with this one
+            RS485controller.TransmissionResultsSize = GenConstants.GenConstants.transmissionResultsSize; //deal with this one
+            RS485controller.TaskManager.CreateTask(GenCallingTask);
         }
 
         private void SerialOverDev1TaskInit()
         {
-
+            USBdev1Controller.TaskQueueSize = GenConstants.GenConstants.taskQueueSize;
+            USBdev1Controller.TransmissionResultsSize = GenConstants.GenConstants.transmissionResultsSize;
+            USBdev1Controller.TaskManager.CreateTask(GenCallingTask);
         }
 
         private void SerialOverDev2TaskInit()
         {
-
+            USBdev2Controller.TaskQueueSize = GenConstants.GenConstants.taskQueueSize;
+            USBdev2Controller.TransmissionResultsSize = GenConstants.GenConstants.transmissionResultsSize;
+            USBdev2Controller.TaskManager.CreateTask(GenCallingTask);
         }
 
         private void ModemRS232TtlTaskInit()
         {
-
+            USBmodemController.TaskQueueSize = GenConstants.GenConstants.taskQueueSize;
+            USBmodemController.TransmissionResultsSize = GenConstants.GenConstants.transmissionResultsSize;
+            USBmodemController.TaskManager.CreateTask(GenCallingTask);
         }
 
         private void USBdev1StartBtn_Click(object sender, EventArgs e)
         {
             SerialOverDev1TaskInit();
+            USBdev1Controller.TaskManager.InitiateTaskProcessing();
         }
 
         private void USBdev2StartBtn_Click(object sender, EventArgs e)
         {
             SerialOverDev2TaskInit();
+            USBdev2Controller.TaskManager.InitiateTaskProcessing();
         }
 
         private void USBmodemStartBtn_Click(object sender, EventArgs e)
         {
             ModemRS232TtlTaskInit();
+            USBmodemController.TaskManager.InitiateTaskProcessing();
         }
+
     }
     public class LocalResults
     {

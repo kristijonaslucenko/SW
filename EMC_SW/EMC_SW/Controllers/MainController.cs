@@ -60,9 +60,9 @@ namespace EMC_SW.Controllers
             TaskManager = new Tasker(DataHandler);
         }
 
-        public void Start(String port)
+        public void Start(String port, int baudrate)
         {
-            DataHandler.Open(port);
+            DataHandler.Open(port, baudrate);
         }
 
         public void Stop()

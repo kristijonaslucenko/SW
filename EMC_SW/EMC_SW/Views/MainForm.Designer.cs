@@ -74,12 +74,12 @@
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.COMconnectBtn = new System.Windows.Forms.Button();
-            this.USBhostComBox = new System.Windows.Forms.ComboBox();
+            this.USBdev1ComBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.USBmodemComBox = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.RS485comBox = new System.Windows.Forms.ComboBox();
-            this.USBdeviceComBox = new System.Windows.Forms.ComboBox();
+            this.USBdev2ComBox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.RS232comBox = new System.Windows.Forms.ComboBox();
@@ -88,7 +88,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.usbHostErrorCountText = new System.Windows.Forms.TextBox();
             this.UsbHostStatusText = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -104,26 +104,26 @@
             this.USBmodemStopBtn = new System.Windows.Forms.Button();
             this.USBmodemResetBtn = new System.Windows.Forms.Button();
             this.USBmodemStartBtn = new System.Windows.Forms.Button();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.RS232TTLtextboxE = new System.Windows.Forms.TextBox();
+            this.RS232TTLtextboxM = new System.Windows.Forms.TextBox();
+            this.RS232TTLtextboxR = new System.Windows.Forms.TextBox();
+            this.RS232TTLtextboxT = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.USBdev2StopBtn = new System.Windows.Forms.Button();
             this.USBdev2ResetBtn = new System.Windows.Forms.Button();
             this.USBdev2StartBtn = new System.Windows.Forms.Button();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.Dev2textboxE = new System.Windows.Forms.TextBox();
+            this.Dev2textboxM = new System.Windows.Forms.TextBox();
+            this.Dev2textboxR = new System.Windows.Forms.TextBox();
+            this.Dev2textboxT = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.USBdev1StopBtn = new System.Windows.Forms.Button();
             this.USBdev1ResetBtn = new System.Windows.Forms.Button();
             this.USBdev1StartBtn = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.Dev1textboxE = new System.Windows.Forms.TextBox();
+            this.Dev1textboxM = new System.Windows.Forms.TextBox();
+            this.Dev1textboxR = new System.Windows.Forms.TextBox();
+            this.Dev1textboxT = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.RS485stopBtn = new System.Windows.Forms.Button();
             this.RS485resetBtn = new System.Windows.Forms.Button();
@@ -157,6 +157,12 @@
             this.displayStatusTextBox = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.keyPressEventText = new System.Windows.Forms.TextBox();
+            this.displayConnStatusText = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.baudrateComboBox = new System.Windows.Forms.ComboBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -608,13 +614,15 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.baudrateComboBox);
+            this.groupBox2.Controls.Add(this.label29);
             this.groupBox2.Controls.Add(this.COMconnectBtn);
-            this.groupBox2.Controls.Add(this.USBhostComBox);
+            this.groupBox2.Controls.Add(this.USBdev1ComBox);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.USBmodemComBox);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.RS485comBox);
-            this.groupBox2.Controls.Add(this.USBdeviceComBox);
+            this.groupBox2.Controls.Add(this.USBdev2ComBox);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.RS232comBox);
@@ -636,22 +644,22 @@
             this.COMconnectBtn.UseVisualStyleBackColor = true;
             this.COMconnectBtn.Click += new System.EventHandler(this.COMconnectBtn_Click);
             // 
-            // USBhostComBox
+            // USBdev1ComBox
             // 
-            this.USBhostComBox.FormattingEnabled = true;
-            this.USBhostComBox.Location = new System.Drawing.Point(239, 44);
-            this.USBhostComBox.Name = "USBhostComBox";
-            this.USBhostComBox.Size = new System.Drawing.Size(85, 21);
-            this.USBhostComBox.TabIndex = 14;
+            this.USBdev1ComBox.FormattingEnabled = true;
+            this.USBdev1ComBox.Location = new System.Drawing.Point(239, 44);
+            this.USBdev1ComBox.Name = "USBdev1ComBox";
+            this.USBdev1ComBox.Size = new System.Drawing.Size(85, 21);
+            this.USBdev1ComBox.TabIndex = 14;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(236, 25);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 13);
+            this.label9.Size = new System.Drawing.Size(68, 13);
             this.label9.TabIndex = 13;
-            this.label9.Text = "USB Host";
+            this.label9.Text = "USB Dev #1";
             // 
             // USBmodemComBox
             // 
@@ -666,9 +674,9 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(126, 73);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(78, 13);
+            this.label11.Size = new System.Drawing.Size(101, 13);
             this.label11.TabIndex = 17;
-            this.label11.Text = "USB H Modem";
+            this.label11.Text = "Modem RS232 TTL";
             // 
             // RS485comBox
             // 
@@ -678,13 +686,13 @@
             this.RS485comBox.Size = new System.Drawing.Size(85, 21);
             this.RS485comBox.TabIndex = 12;
             // 
-            // USBdeviceComBox
+            // USBdev2ComBox
             // 
-            this.USBdeviceComBox.FormattingEnabled = true;
-            this.USBdeviceComBox.Location = new System.Drawing.Point(17, 92);
-            this.USBdeviceComBox.Name = "USBdeviceComBox";
-            this.USBdeviceComBox.Size = new System.Drawing.Size(85, 21);
-            this.USBdeviceComBox.TabIndex = 16;
+            this.USBdev2ComBox.FormattingEnabled = true;
+            this.USBdev2ComBox.Location = new System.Drawing.Point(17, 92);
+            this.USBdev2ComBox.Name = "USBdev2ComBox";
+            this.USBdev2ComBox.Size = new System.Drawing.Size(85, 21);
+            this.USBdev2ComBox.TabIndex = 16;
             // 
             // label8
             // 
@@ -700,9 +708,9 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(13, 73);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(66, 13);
+            this.label12.Size = new System.Drawing.Size(68, 13);
             this.label12.TabIndex = 15;
-            this.label12.Text = "USB Device";
+            this.label12.Text = "USB Dev #2";
             // 
             // RS232comBox
             // 
@@ -726,7 +734,7 @@
             this.groupBox3.Controls.Add(this.textBox2);
             this.groupBox3.Controls.Add(this.textBox3);
             this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.usbHostErrorCountText);
             this.groupBox3.Controls.Add(this.UsbHostStatusText);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.groupBox4);
@@ -742,26 +750,26 @@
             this.groupBox3.Controls.Add(this.USBmodemStopBtn);
             this.groupBox3.Controls.Add(this.USBmodemResetBtn);
             this.groupBox3.Controls.Add(this.USBmodemStartBtn);
-            this.groupBox3.Controls.Add(this.textBox13);
-            this.groupBox3.Controls.Add(this.textBox14);
-            this.groupBox3.Controls.Add(this.textBox15);
-            this.groupBox3.Controls.Add(this.textBox16);
+            this.groupBox3.Controls.Add(this.RS232TTLtextboxE);
+            this.groupBox3.Controls.Add(this.RS232TTLtextboxM);
+            this.groupBox3.Controls.Add(this.RS232TTLtextboxR);
+            this.groupBox3.Controls.Add(this.RS232TTLtextboxT);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.USBdev2StopBtn);
             this.groupBox3.Controls.Add(this.USBdev2ResetBtn);
             this.groupBox3.Controls.Add(this.USBdev2StartBtn);
-            this.groupBox3.Controls.Add(this.textBox9);
-            this.groupBox3.Controls.Add(this.textBox10);
-            this.groupBox3.Controls.Add(this.textBox11);
-            this.groupBox3.Controls.Add(this.textBox12);
+            this.groupBox3.Controls.Add(this.Dev2textboxE);
+            this.groupBox3.Controls.Add(this.Dev2textboxM);
+            this.groupBox3.Controls.Add(this.Dev2textboxR);
+            this.groupBox3.Controls.Add(this.Dev2textboxT);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.USBdev1StopBtn);
             this.groupBox3.Controls.Add(this.USBdev1ResetBtn);
             this.groupBox3.Controls.Add(this.USBdev1StartBtn);
-            this.groupBox3.Controls.Add(this.textBox5);
-            this.groupBox3.Controls.Add(this.textBox6);
-            this.groupBox3.Controls.Add(this.textBox7);
-            this.groupBox3.Controls.Add(this.textBox8);
+            this.groupBox3.Controls.Add(this.Dev1textboxE);
+            this.groupBox3.Controls.Add(this.Dev1textboxM);
+            this.groupBox3.Controls.Add(this.Dev1textboxR);
+            this.groupBox3.Controls.Add(this.Dev1textboxT);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.RS485stopBtn);
             this.groupBox3.Controls.Add(this.RS485resetBtn);
@@ -816,16 +824,16 @@
             this.label10.TabIndex = 62;
             this.label10.Text = "USB Host M";
             // 
-            // textBox1
+            // usbHostErrorCountText
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(210, 258);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(52, 20);
-            this.textBox1.TabIndex = 61;
-            this.textBox1.Text = " ";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usbHostErrorCountText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usbHostErrorCountText.Location = new System.Drawing.Point(210, 258);
+            this.usbHostErrorCountText.Name = "usbHostErrorCountText";
+            this.usbHostErrorCountText.ReadOnly = true;
+            this.usbHostErrorCountText.Size = new System.Drawing.Size(52, 20);
+            this.usbHostErrorCountText.TabIndex = 61;
+            this.usbHostErrorCountText.Text = " ";
+            this.usbHostErrorCountText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // UsbHostStatusText
             // 
@@ -969,49 +977,49 @@
             this.USBmodemStartBtn.UseVisualStyleBackColor = true;
             this.USBmodemStartBtn.Click += new System.EventHandler(this.USBmodemStartBtn_Click);
             // 
-            // textBox13
+            // RS232TTLtextboxE
             // 
-            this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.Location = new System.Drawing.Point(211, 220);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(52, 20);
-            this.textBox13.TabIndex = 36;
-            this.textBox13.Text = " ";
-            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.RS232TTLtextboxE.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RS232TTLtextboxE.Location = new System.Drawing.Point(211, 220);
+            this.RS232TTLtextboxE.Name = "RS232TTLtextboxE";
+            this.RS232TTLtextboxE.ReadOnly = true;
+            this.RS232TTLtextboxE.Size = new System.Drawing.Size(52, 20);
+            this.RS232TTLtextboxE.TabIndex = 36;
+            this.RS232TTLtextboxE.Text = " ";
+            this.RS232TTLtextboxE.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox14
+            // RS232TTLtextboxM
             // 
-            this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.Location = new System.Drawing.Point(154, 220);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(52, 20);
-            this.textBox14.TabIndex = 35;
-            this.textBox14.Text = " ";
-            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.RS232TTLtextboxM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RS232TTLtextboxM.Location = new System.Drawing.Point(154, 220);
+            this.RS232TTLtextboxM.Name = "RS232TTLtextboxM";
+            this.RS232TTLtextboxM.ReadOnly = true;
+            this.RS232TTLtextboxM.Size = new System.Drawing.Size(52, 20);
+            this.RS232TTLtextboxM.TabIndex = 35;
+            this.RS232TTLtextboxM.Text = " ";
+            this.RS232TTLtextboxM.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox15
+            // RS232TTLtextboxR
             // 
-            this.textBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox15.Location = new System.Drawing.Point(96, 220);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.ReadOnly = true;
-            this.textBox15.Size = new System.Drawing.Size(52, 20);
-            this.textBox15.TabIndex = 34;
-            this.textBox15.Text = " ";
-            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.RS232TTLtextboxR.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RS232TTLtextboxR.Location = new System.Drawing.Point(96, 220);
+            this.RS232TTLtextboxR.Name = "RS232TTLtextboxR";
+            this.RS232TTLtextboxR.ReadOnly = true;
+            this.RS232TTLtextboxR.Size = new System.Drawing.Size(52, 20);
+            this.RS232TTLtextboxR.TabIndex = 34;
+            this.RS232TTLtextboxR.Text = " ";
+            this.RS232TTLtextboxR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox16
+            // RS232TTLtextboxT
             // 
-            this.textBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox16.Location = new System.Drawing.Point(38, 220);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.ReadOnly = true;
-            this.textBox16.Size = new System.Drawing.Size(52, 20);
-            this.textBox16.TabIndex = 33;
-            this.textBox16.Text = " ";
-            this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.RS232TTLtextboxT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RS232TTLtextboxT.Location = new System.Drawing.Point(38, 220);
+            this.RS232TTLtextboxT.Name = "RS232TTLtextboxT";
+            this.RS232TTLtextboxT.ReadOnly = true;
+            this.RS232TTLtextboxT.Size = new System.Drawing.Size(52, 20);
+            this.RS232TTLtextboxT.TabIndex = 33;
+            this.RS232TTLtextboxT.Text = " ";
+            this.RS232TTLtextboxT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
@@ -1052,49 +1060,49 @@
             this.USBdev2StartBtn.UseVisualStyleBackColor = true;
             this.USBdev2StartBtn.Click += new System.EventHandler(this.USBdev2StartBtn_Click);
             // 
-            // textBox9
+            // Dev2textboxE
             // 
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(210, 180);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(52, 20);
-            this.textBox9.TabIndex = 28;
-            this.textBox9.Text = " ";
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Dev2textboxE.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dev2textboxE.Location = new System.Drawing.Point(210, 180);
+            this.Dev2textboxE.Name = "Dev2textboxE";
+            this.Dev2textboxE.ReadOnly = true;
+            this.Dev2textboxE.Size = new System.Drawing.Size(52, 20);
+            this.Dev2textboxE.TabIndex = 28;
+            this.Dev2textboxE.Text = " ";
+            this.Dev2textboxE.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox10
+            // Dev2textboxM
             // 
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(153, 180);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(52, 20);
-            this.textBox10.TabIndex = 27;
-            this.textBox10.Text = " ";
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Dev2textboxM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dev2textboxM.Location = new System.Drawing.Point(153, 180);
+            this.Dev2textboxM.Name = "Dev2textboxM";
+            this.Dev2textboxM.ReadOnly = true;
+            this.Dev2textboxM.Size = new System.Drawing.Size(52, 20);
+            this.Dev2textboxM.TabIndex = 27;
+            this.Dev2textboxM.Text = " ";
+            this.Dev2textboxM.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox11
+            // Dev2textboxR
             // 
-            this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(95, 180);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(52, 20);
-            this.textBox11.TabIndex = 26;
-            this.textBox11.Text = " ";
-            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Dev2textboxR.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dev2textboxR.Location = new System.Drawing.Point(95, 180);
+            this.Dev2textboxR.Name = "Dev2textboxR";
+            this.Dev2textboxR.ReadOnly = true;
+            this.Dev2textboxR.Size = new System.Drawing.Size(52, 20);
+            this.Dev2textboxR.TabIndex = 26;
+            this.Dev2textboxR.Text = " ";
+            this.Dev2textboxR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox12
+            // Dev2textboxT
             // 
-            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(37, 180);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(52, 20);
-            this.textBox12.TabIndex = 25;
-            this.textBox12.Text = " ";
-            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Dev2textboxT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dev2textboxT.Location = new System.Drawing.Point(37, 180);
+            this.Dev2textboxT.Name = "Dev2textboxT";
+            this.Dev2textboxT.ReadOnly = true;
+            this.Dev2textboxT.Size = new System.Drawing.Size(52, 20);
+            this.Dev2textboxT.TabIndex = 25;
+            this.Dev2textboxT.Text = " ";
+            this.Dev2textboxT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 
@@ -1135,49 +1143,49 @@
             this.USBdev1StartBtn.UseVisualStyleBackColor = true;
             this.USBdev1StartBtn.Click += new System.EventHandler(this.USBdev1StartBtn_Click);
             // 
-            // textBox5
+            // Dev1textboxE
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(210, 140);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(52, 20);
-            this.textBox5.TabIndex = 20;
-            this.textBox5.Text = " ";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Dev1textboxE.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dev1textboxE.Location = new System.Drawing.Point(210, 140);
+            this.Dev1textboxE.Name = "Dev1textboxE";
+            this.Dev1textboxE.ReadOnly = true;
+            this.Dev1textboxE.Size = new System.Drawing.Size(52, 20);
+            this.Dev1textboxE.TabIndex = 20;
+            this.Dev1textboxE.Text = " ";
+            this.Dev1textboxE.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox6
+            // Dev1textboxM
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(153, 140);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(52, 20);
-            this.textBox6.TabIndex = 19;
-            this.textBox6.Text = " ";
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Dev1textboxM.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dev1textboxM.Location = new System.Drawing.Point(153, 140);
+            this.Dev1textboxM.Name = "Dev1textboxM";
+            this.Dev1textboxM.ReadOnly = true;
+            this.Dev1textboxM.Size = new System.Drawing.Size(52, 20);
+            this.Dev1textboxM.TabIndex = 19;
+            this.Dev1textboxM.Text = " ";
+            this.Dev1textboxM.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox7
+            // Dev1textboxR
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(95, 140);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(52, 20);
-            this.textBox7.TabIndex = 18;
-            this.textBox7.Text = " ";
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Dev1textboxR.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dev1textboxR.Location = new System.Drawing.Point(95, 140);
+            this.Dev1textboxR.Name = "Dev1textboxR";
+            this.Dev1textboxR.ReadOnly = true;
+            this.Dev1textboxR.Size = new System.Drawing.Size(52, 20);
+            this.Dev1textboxR.TabIndex = 18;
+            this.Dev1textboxR.Text = " ";
+            this.Dev1textboxR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox8
+            // Dev1textboxT
             // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(37, 140);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(52, 20);
-            this.textBox8.TabIndex = 17;
-            this.textBox8.Text = " ";
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Dev1textboxT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dev1textboxT.Location = new System.Drawing.Point(37, 140);
+            this.Dev1textboxT.Name = "Dev1textboxT";
+            this.Dev1textboxT.ReadOnly = true;
+            this.Dev1textboxT.Size = new System.Drawing.Size(52, 20);
+            this.Dev1textboxT.TabIndex = 17;
+            this.Dev1textboxT.Text = " ";
+            this.Dev1textboxT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -1495,9 +1503,9 @@
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(32, 477);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(74, 13);
+            this.label25.Size = new System.Drawing.Size(88, 13);
             this.label25.TabIndex = 65;
-            this.label25.Text = "Display Status";
+            this.label25.Text = "Display UI Status";
             // 
             // label26
             // 
@@ -1508,11 +1516,85 @@
             this.label26.TabIndex = 71;
             this.label26.Text = "Key Press Count";
             // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(239, 516);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(85, 13);
+            this.label27.TabIndex = 73;
+            this.label27.Text = "Key Press Event";
+            // 
+            // keyPressEventText
+            // 
+            this.keyPressEventText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.keyPressEventText.Location = new System.Drawing.Point(242, 532);
+            this.keyPressEventText.Name = "keyPressEventText";
+            this.keyPressEventText.ReadOnly = true;
+            this.keyPressEventText.Size = new System.Drawing.Size(52, 20);
+            this.keyPressEventText.TabIndex = 72;
+            this.keyPressEventText.Text = " ";
+            this.keyPressEventText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // displayConnStatusText
+            // 
+            this.displayConnStatusText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.displayConnStatusText.Location = new System.Drawing.Point(35, 588);
+            this.displayConnStatusText.Name = "displayConnStatusText";
+            this.displayConnStatusText.ReadOnly = true;
+            this.displayConnStatusText.Size = new System.Drawing.Size(98, 20);
+            this.displayConnStatusText.TabIndex = 75;
+            this.displayConnStatusText.Text = " ";
+            this.displayConnStatusText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(32, 572);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(131, 13);
+            this.label28.TabIndex = 74;
+            this.label28.Text = "Display Connection Status";
+            // 
+            // baudrateComboBox
+            // 
+            this.baudrateComboBox.FormattingEnabled = true;
+            this.baudrateComboBox.Items.AddRange(new object[] {
+            "9600",
+            "19200",
+            "38400",
+            "57600",
+            "115200",
+            "230400",
+            "460800",
+            "921600",
+            "1000000",
+            "2000000",
+            "3000000",
+            "4000000"});
+            this.baudrateComboBox.Location = new System.Drawing.Point(239, 92);
+            this.baudrateComboBox.Name = "baudrateComboBox";
+            this.baudrateComboBox.Size = new System.Drawing.Size(85, 21);
+            this.baudrateComboBox.TabIndex = 20;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(235, 73);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(94, 13);
+            this.label29.TabIndex = 19;
+            this.label29.Text = "Common Baudrate";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.displayConnStatusText);
+            this.Controls.Add(this.label28);
+            this.Controls.Add(this.label27);
+            this.Controls.Add(this.keyPressEventText);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.keyPressCountTextBox);
             this.Controls.Add(this.lastKeyPressedTextBox);
@@ -1580,26 +1662,26 @@
         private System.Windows.Forms.Button USBmodemStopBtn;
         private System.Windows.Forms.Button USBmodemResetBtn;
         private System.Windows.Forms.Button USBmodemStartBtn;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox RS232TTLtextboxE;
+        private System.Windows.Forms.TextBox RS232TTLtextboxM;
+        private System.Windows.Forms.TextBox RS232TTLtextboxR;
+        private System.Windows.Forms.TextBox RS232TTLtextboxT;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button USBdev2StopBtn;
         private System.Windows.Forms.Button USBdev2ResetBtn;
         private System.Windows.Forms.Button USBdev2StartBtn;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox Dev2textboxE;
+        private System.Windows.Forms.TextBox Dev2textboxM;
+        private System.Windows.Forms.TextBox Dev2textboxR;
+        private System.Windows.Forms.TextBox Dev2textboxT;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button USBdev1StopBtn;
         private System.Windows.Forms.Button USBdev1ResetBtn;
         private System.Windows.Forms.Button USBdev1StartBtn;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox Dev1textboxE;
+        private System.Windows.Forms.TextBox Dev1textboxM;
+        private System.Windows.Forms.TextBox Dev1textboxR;
+        private System.Windows.Forms.TextBox Dev1textboxT;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button RS485stopBtn;
         private System.Windows.Forms.Button RS485resetBtn;
@@ -1613,14 +1695,14 @@
         private System.Windows.Forms.Button CtrlStartAllBtn;
         private System.Windows.Forms.ComboBox RS232comBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox USBhostComBox;
+        private System.Windows.Forms.ComboBox USBdev1ComBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox RS485comBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button COMconnectBtn;
         private System.Windows.Forms.ComboBox USBmodemComBox;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox USBdeviceComBox;
+        private System.Windows.Forms.ComboBox USBdev2ComBox;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label13;
@@ -1682,7 +1764,7 @@
         private System.Windows.Forms.Timer GUIrefreshTimer;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox usbHostErrorCountText;
         private System.Windows.Forms.TextBox UsbHostStatusText;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
@@ -1693,6 +1775,12 @@
         private System.Windows.Forms.TextBox displayStatusTextBox;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox keyPressEventText;
+        private System.Windows.Forms.TextBox displayConnStatusText;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.ComboBox baudrateComboBox;
+        private System.Windows.Forms.Label label29;
     }
 }
 

@@ -9,7 +9,7 @@ namespace EMC_SW.GenConstants
     static class GenConstants
     {
         public const int PacketSize = 3;
-        public const int BaudRate = 9600;
+        public const int BaudRate = 20000000;
         public const int SentPacketListSize = 256;
         public const int ReceivedPacketListSize = 256;
         public const int ResultListSize = 256;
@@ -25,11 +25,13 @@ namespace EMC_SW.GenConstants
         public const int RequestUsbHostStatusTaskId = 6;
         public const int StopTaskId = 7;
         public const int SerialReadTimeout = 200; //ms
+        public const int taskQueueSize = 200;
+        public const int transmissionResultsSize = 200;
 
         public const int controlUsbHostResponseRWrunning = 1;
         public const int controlUsbHostResponseNotAccessible = 2;
-        public const string controlUsbHostTextBoxValueRWRunning = "Running";
-        public const string controlUsbHostTextBoxValueNotAcc = "N/A";
+        public const string controlUsbHostTextBoxValueRWRunning = "R/W Running";
+        public const string controlUsbHostTextBoxValueNotAcc = "Not Accessible";
         public const int controlDisplayResponseNui = 0;
         public const int controlDisplayResponseTui = 1;
         public const string controlDisplayResponseNuiText = "Normal UI";
@@ -42,5 +44,15 @@ namespace EMC_SW.GenConstants
         public const string keyPressStatusPrNotRelText = "Pressed, not released";
         public const int keyPressStatusPrRel = 2;
         public const string keyPressStatusPrRelText = "Pressed, released";
+        public const int displayStateNotConn = 0;
+        public const string displayStateNotConnText = "Not Connected";
+        public const int displayStateConnected = 1;
+        public const string displayStateConnectedText = "Connected";
+        public const int usbHostStatusNA = 0;
+        public const string usbHostStatusNAtext = "Not Accessible";
+        public const int usbHostStatusRWrunn = 1;
+        public const string usbHostStatusRWrunnText = "R/W running";
+        public const int usbHostStatusNotAcc = 2;
+        public const string usbHostStatusNotAccText = "Not Accessible";
     }
 }

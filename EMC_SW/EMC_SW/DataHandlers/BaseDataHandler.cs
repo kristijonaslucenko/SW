@@ -35,7 +35,7 @@ namespace EMC_SW.DataHandlers
         protected abstract byte[] ReadData(int BufferSize, out bool timeout);
         protected abstract void WriteData(byte[] buffer);
 
-        public virtual void Open(String port)
+        public virtual void Open(String port, int baudrate)
         {
             //stopped = false;
             //readThread = new Thread(DoRead);
