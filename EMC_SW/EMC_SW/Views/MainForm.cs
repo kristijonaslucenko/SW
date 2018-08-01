@@ -237,7 +237,7 @@ namespace EMC_SW
                 localResultsRS485.receivedPackets += LocalPeekedRecord.Received;
                 localResultsRS485.missedPackets += LocalPeekedRecord.Missing;
                 localResultsRS485.errorsInTransmission += LocalPeekedRecord.Errors;
-                if (LocalPeekedRecord.Status != 0 || LocalPeekedRecord.OpErrors != 0) //Diffrentiate from simple calls
+                if (LocalPeekedRecord.Id != 1 || LocalPeekedRecord.Id!= 7) //Diffrentiate from simple calls
                 {
                     switch (LocalPeekedRecord.Id)
                     {
@@ -252,6 +252,10 @@ namespace EMC_SW
                             else if (localResultsRS485.controlUsbHostResponse == GenConstants.GenConstants.controlUsbHostResponseNotAccessible)
                             {
                                 UsbHostStatusText.Text = GenConstants.GenConstants.controlUsbHostTextBoxValueNotAcc;
+                            }
+                            else if (localResultsRS485.controlUsbHostResponse == GenConstants.GenConstants.controlUsbHostNth)
+                            {
+                                UsbHostStatusText.Text = GenConstants.GenConstants.controlUsbHostNthText;
                             }
                             break;
                         // ControlDisplayResponse 
@@ -414,18 +418,19 @@ namespace EMC_SW
 
         private void RS485TaskInit()
         {
-            if (!rs485Started && rs485Connected)
+            if (rs485Connected)    ///!rs485Started && 
             {
                 UsbControlTask = new TaskLUP
                 {
-                    AddedTask = null,
+                    AddedTask = EmcProtocol.ControlUsbHost.StartUsbReadWrite(),
                     id = GenConstants.GenConstants.ControlUsbHostTaskId,
-                    Repetition = 0,
+                    Repetition = 10,
                     IsContinuous = false
                 };
                 RS485controller.TaskQueueSize = GenConstants.GenConstants.taskQueueSize; //deal with this one
                 RS485controller.TransmissionResultsSize = GenConstants.GenConstants.transmissionResultsSize; //deal with this one
-                RS485controller.TaskManager.CreateTask(GenCallingTask);
+                //RS485controller.TaskManager.CreateTask(GenCallingTask);
+                RS485controller.TaskManager.CreateTask(UsbControlTask);
                 RS485controller.TaskManager.InitiateTaskProcessing();
                 rs485Started = !rs485Started;
             }

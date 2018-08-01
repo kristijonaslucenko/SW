@@ -28,6 +28,8 @@ namespace EMC_SW.GenConstants
         public const int taskQueueSize = 200;
         public const int transmissionResultsSize = 200;
 
+        public const int controlUsbHostNth = 0;
+        public const string controlUsbHostNthText = "-";
         public const int controlUsbHostResponseRWrunning = 1;
         public const int controlUsbHostResponseNotAccessible = 2;
         public const string controlUsbHostTextBoxValueRWRunning = "R/W Running";

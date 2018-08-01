@@ -73,6 +73,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rs232ttlStatusLbl = new System.Windows.Forms.Label();
+            this.dev2StatusLbl = new System.Windows.Forms.Label();
+            this.dev1StatusLbl = new System.Windows.Forms.Label();
+            this.rs485StatusLbl = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.rs232StatusLbl = new System.Windows.Forms.Label();
+            this.baudrateComboBox = new System.Windows.Forms.ComboBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.COMconnectBtn = new System.Windows.Forms.Button();
             this.USBdev1ComBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -151,14 +159,6 @@
             this.keyPressEventText = new System.Windows.Forms.TextBox();
             this.displayConnStatusText = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.baudrateComboBox = new System.Windows.Forms.ComboBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.rs232StatusLbl = new System.Windows.Forms.Label();
-            this.rs485StatusLbl = new System.Windows.Forms.Label();
-            this.dev1StatusLbl = new System.Windows.Forms.Label();
-            this.dev2StatusLbl = new System.Windows.Forms.Label();
-            this.rs232ttlStatusLbl = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -635,6 +635,96 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "COM Settings";
             // 
+            // rs232ttlStatusLbl
+            // 
+            this.rs232ttlStatusLbl.AutoSize = true;
+            this.rs232ttlStatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rs232ttlStatusLbl.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rs232ttlStatusLbl.Location = new System.Drawing.Point(148, 139);
+            this.rs232ttlStatusLbl.Name = "rs232ttlStatusLbl";
+            this.rs232ttlStatusLbl.Size = new System.Drawing.Size(0, 9);
+            this.rs232ttlStatusLbl.TabIndex = 69;
+            // 
+            // dev2StatusLbl
+            // 
+            this.dev2StatusLbl.AutoSize = true;
+            this.dev2StatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dev2StatusLbl.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.dev2StatusLbl.Location = new System.Drawing.Point(37, 139);
+            this.dev2StatusLbl.Name = "dev2StatusLbl";
+            this.dev2StatusLbl.Size = new System.Drawing.Size(0, 9);
+            this.dev2StatusLbl.TabIndex = 68;
+            // 
+            // dev1StatusLbl
+            // 
+            this.dev1StatusLbl.AutoSize = true;
+            this.dev1StatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dev1StatusLbl.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.dev1StatusLbl.Location = new System.Drawing.Point(259, 67);
+            this.dev1StatusLbl.Name = "dev1StatusLbl";
+            this.dev1StatusLbl.Size = new System.Drawing.Size(0, 9);
+            this.dev1StatusLbl.TabIndex = 67;
+            // 
+            // rs485StatusLbl
+            // 
+            this.rs485StatusLbl.AutoSize = true;
+            this.rs485StatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rs485StatusLbl.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rs485StatusLbl.Location = new System.Drawing.Point(147, 67);
+            this.rs485StatusLbl.Name = "rs485StatusLbl";
+            this.rs485StatusLbl.Size = new System.Drawing.Size(0, 9);
+            this.rs485StatusLbl.TabIndex = 66;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(261, 162);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(89, 23);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Disconnect";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // rs232StatusLbl
+            // 
+            this.rs232StatusLbl.AutoSize = true;
+            this.rs232StatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rs232StatusLbl.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rs232StatusLbl.Location = new System.Drawing.Point(35, 67);
+            this.rs232StatusLbl.Name = "rs232StatusLbl";
+            this.rs232StatusLbl.Size = new System.Drawing.Size(0, 9);
+            this.rs232StatusLbl.TabIndex = 65;
+            // 
+            // baudrateComboBox
+            // 
+            this.baudrateComboBox.FormattingEnabled = true;
+            this.baudrateComboBox.Items.AddRange(new object[] {
+            "9600",
+            "19200",
+            "38400",
+            "57600",
+            "115200",
+            "230400",
+            "460800",
+            "921600",
+            "1000000",
+            "2000000",
+            "3000000",
+            "4000000"});
+            this.baudrateComboBox.Location = new System.Drawing.Point(260, 112);
+            this.baudrateComboBox.Name = "baudrateComboBox";
+            this.baudrateComboBox.Size = new System.Drawing.Size(85, 21);
+            this.baudrateComboBox.TabIndex = 20;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(256, 93);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(50, 13);
+            this.label29.TabIndex = 19;
+            this.label29.Text = "Baudrate";
+            // 
             // COMconnectBtn
             // 
             this.COMconnectBtn.Location = new System.Drawing.Point(149, 162);
@@ -811,7 +901,7 @@
             this.textBox3.Location = new System.Drawing.Point(38, 297);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(52, 20);
+            this.textBox3.Size = new System.Drawing.Size(110, 20);
             this.textBox3.TabIndex = 63;
             this.textBox3.Text = " ";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -842,7 +932,7 @@
             this.UsbHostStatusText.Location = new System.Drawing.Point(38, 258);
             this.UsbHostStatusText.Name = "UsbHostStatusText";
             this.UsbHostStatusText.ReadOnly = true;
-            this.UsbHostStatusText.Size = new System.Drawing.Size(52, 20);
+            this.UsbHostStatusText.Size = new System.Drawing.Size(110, 20);
             this.UsbHostStatusText.TabIndex = 60;
             this.UsbHostStatusText.Text = " ";
             this.UsbHostStatusText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1460,96 +1550,6 @@
             this.label28.Size = new System.Drawing.Size(131, 13);
             this.label28.TabIndex = 74;
             this.label28.Text = "Display Connection Status";
-            // 
-            // baudrateComboBox
-            // 
-            this.baudrateComboBox.FormattingEnabled = true;
-            this.baudrateComboBox.Items.AddRange(new object[] {
-            "9600",
-            "19200",
-            "38400",
-            "57600",
-            "115200",
-            "230400",
-            "460800",
-            "921600",
-            "1000000",
-            "2000000",
-            "3000000",
-            "4000000"});
-            this.baudrateComboBox.Location = new System.Drawing.Point(260, 112);
-            this.baudrateComboBox.Name = "baudrateComboBox";
-            this.baudrateComboBox.Size = new System.Drawing.Size(85, 21);
-            this.baudrateComboBox.TabIndex = 20;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(256, 93);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(50, 13);
-            this.label29.TabIndex = 19;
-            this.label29.Text = "Baudrate";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(261, 162);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 23);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Disconnect";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // rs232StatusLbl
-            // 
-            this.rs232StatusLbl.AutoSize = true;
-            this.rs232StatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rs232StatusLbl.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.rs232StatusLbl.Location = new System.Drawing.Point(35, 67);
-            this.rs232StatusLbl.Name = "rs232StatusLbl";
-            this.rs232StatusLbl.Size = new System.Drawing.Size(0, 9);
-            this.rs232StatusLbl.TabIndex = 65;
-            // 
-            // rs485StatusLbl
-            // 
-            this.rs485StatusLbl.AutoSize = true;
-            this.rs485StatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rs485StatusLbl.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.rs485StatusLbl.Location = new System.Drawing.Point(147, 67);
-            this.rs485StatusLbl.Name = "rs485StatusLbl";
-            this.rs485StatusLbl.Size = new System.Drawing.Size(0, 9);
-            this.rs485StatusLbl.TabIndex = 66;
-            // 
-            // dev1StatusLbl
-            // 
-            this.dev1StatusLbl.AutoSize = true;
-            this.dev1StatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dev1StatusLbl.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.dev1StatusLbl.Location = new System.Drawing.Point(259, 67);
-            this.dev1StatusLbl.Name = "dev1StatusLbl";
-            this.dev1StatusLbl.Size = new System.Drawing.Size(0, 9);
-            this.dev1StatusLbl.TabIndex = 67;
-            // 
-            // dev2StatusLbl
-            // 
-            this.dev2StatusLbl.AutoSize = true;
-            this.dev2StatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dev2StatusLbl.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.dev2StatusLbl.Location = new System.Drawing.Point(37, 139);
-            this.dev2StatusLbl.Name = "dev2StatusLbl";
-            this.dev2StatusLbl.Size = new System.Drawing.Size(0, 9);
-            this.dev2StatusLbl.TabIndex = 68;
-            // 
-            // rs232ttlStatusLbl
-            // 
-            this.rs232ttlStatusLbl.AutoSize = true;
-            this.rs232ttlStatusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rs232ttlStatusLbl.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.rs232ttlStatusLbl.Location = new System.Drawing.Point(148, 139);
-            this.rs232ttlStatusLbl.Name = "rs232ttlStatusLbl";
-            this.rs232ttlStatusLbl.Size = new System.Drawing.Size(0, 9);
-            this.rs232ttlStatusLbl.TabIndex = 69;
             // 
             // MainForm
             // 

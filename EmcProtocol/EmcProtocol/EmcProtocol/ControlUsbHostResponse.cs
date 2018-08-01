@@ -8,6 +8,8 @@ namespace EmcProtocol
         public const byte UsbStatePosition = Protocol.V1.LengthPosition + 1;
         public const byte DataLength = 1;
         public const byte ByteSize = Protocol.HeaderLength + Protocol.CrcLength + DataLength;
+        public const byte UiPosition = Protocol.V1.LengthPosition + 1;
+
 
         public static bool IsValid(ref byte[] data)
         {
@@ -23,5 +25,15 @@ namespace EmcProtocol
         }
 
         public static Protocol.V1.UsbState UsbStatus(ref byte[] data) => (Protocol.V1.UsbState)data[UsbStatePosition];
+
+        //0 = Nothing, 1 = Read/Write cycle running, -1 if could not access memory stick
+        public static byte [] CreateTestResponseMessage(byte dataByte)
+        {
+            var data = new byte[ByteSize];
+            Protocol.V1.CreateHeader(ref data, Type, DataLength);
+            data[UiPosition] = dataByte;
+            Protocol.V1.AddCrc(ref data);
+            return data;
+        }
     }
 }

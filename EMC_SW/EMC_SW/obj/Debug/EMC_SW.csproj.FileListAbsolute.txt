@@ -11,3 +11,15 @@ C:\Users\KLU\Documents\GitHub\EMC\EMC_SW\EMC_SW\obj\Debug\EMC_SW.csproj.CopyComp
 C:\Users\KLU\Documents\GitHub\EMC\EMC_SW\EMC_SW\obj\Debug\EMC_SW.exe
 C:\Users\KLU\Documents\GitHub\EMC\EMC_SW\EMC_SW\obj\Debug\EMC_SW.pdb
 C:\Users\KLU\Documents\GitHub\EMC\EMC_SW\EMC_SW\obj\Debug\EMC_SW.MainForm.resources
+C:\Users\MS\Documents\GitHub\SW\EMC_SW\EMC_SW\bin\Debug\EMC_SW.exe.config
+C:\Users\MS\Documents\GitHub\SW\EMC_SW\EMC_SW\bin\Debug\EMC_SW.exe
+C:\Users\MS\Documents\GitHub\SW\EMC_SW\EMC_SW\bin\Debug\EMC_SW.pdb
+C:\Users\MS\Documents\GitHub\SW\EMC_SW\EMC_SW\bin\Debug\EmcProtocol.pdb
+C:\Users\MS\Documents\GitHub\SW\EMC_SW\EMC_SW\obj\Debug\EMC_SW.csprojAssemblyReference.cache
+C:\Users\MS\Documents\GitHub\SW\EMC_SW\EMC_SW\obj\Debug\EMC_SW.Properties.Resources.resources
+C:\Users\MS\Documents\GitHub\SW\EMC_SW\EMC_SW\obj\Debug\EMC_SW.MainForm.resources
+C:\Users\MS\Documents\GitHub\SW\EMC_SW\EMC_SW\obj\Debug\EMC_SW.csproj.GenerateResource.cache
+C:\Users\MS\Documents\GitHub\SW\EMC_SW\EMC_SW\obj\Debug\EMC_SW.csproj.CoreCompileInputs.cache
+C:\Users\MS\Documents\GitHub\SW\EMC_SW\EMC_SW\obj\Debug\EMC_SW.csproj.CopyComplete
+C:\Users\MS\Documents\GitHub\SW\EMC_SW\EMC_SW\obj\Debug\EMC_SW.exe
+C:\Users\MS\Documents\GitHub\SW\EMC_SW\EMC_SW\obj\Debug\EMC_SW.pdb
