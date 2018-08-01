@@ -58,7 +58,7 @@ namespace EMC_SW.TaskManager
                         break;
                     //ControlDisplayTaskId
                     case GenConstants.GenConstants.ControlDisplayTaskId:
-                        Processor.ProcessControlUsbHostTask(FirstQueueTask);
+                        Processor.ProcessControlDisplayTask(FirstQueueTask);
                         LupTaskQueue.Dequeue();
                         if (FirstQueueTask.IsContinuous)
                         {

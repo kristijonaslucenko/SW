@@ -427,10 +427,19 @@ namespace EMC_SW
                     Repetition = 10,
                     IsContinuous = false
                 };
+
+                InitiateLCDinTestMode = new TaskLUP{
+                    AddedTask = EmcProtocol.ControlDisplay.CreateSwitchToNormalUI(),
+                    id = GenConstants.GenConstants.ControlDisplayTaskId,
+                    Repetition = 1,
+                    IsContinuous = false
+                };
                 RS485controller.TaskQueueSize = GenConstants.GenConstants.taskQueueSize; //deal with this one
                 RS485controller.TransmissionResultsSize = GenConstants.GenConstants.transmissionResultsSize; //deal with this one
                 //RS485controller.TaskManager.CreateTask(GenCallingTask);
-                RS485controller.TaskManager.CreateTask(UsbControlTask);
+                //RS485controller.TaskManager.CreateTask(UsbControlTask);
+                RS485controller.TaskManager.CreateTask(InitiateLCDinTestMode);
+
                 RS485controller.TaskManager.InitiateTaskProcessing();
                 rs485Started = !rs485Started;
             }
