@@ -1,0 +1,150 @@
+EMC Protocol:
+Package format:
+Byte 0: Version, currently 1
+Byte 1: Type, current 0x01, 0x02, 0x04 and 0x08
+Byte 2: Data Length (Max 256), can be zero
+Byte 3 until 2 + Length: Data
+Byte (2 + Length) until (2 + Length) + 4: CRC32
+
+Type 0x01 package: Call
+Basic call sent by EMC client to LUP400 periodically
+Always has data length 0
+Example:
+0x01
+0x01
+0x00
+CRC32 byte 0
+CRC32 byte 1
+CRC32 byte 2
+CRC32 byte 3
+
+Type 0x02 package: Ack
+Basic reply sent as an answer to each Call package
+Always has data length 0
+Example:
+0x01
+0x02
+0x00
+CRC32 byte 0
+CRC32 byte 1
+CRC32 byte 2
+CRC32 byte 3
+
+Type 0x03 package: RequestLastKey
+Sent by EMC client to request the last key event seen by the LUP400
+Always has data length 0
+Example:
+0x01
+0x04
+0x00
+CRC32 byte 0
+CRC32 byte 1
+CRC32 byte 2
+CRC32 byte 3
+
+Type 0x04 package: LastKeySeen
+Sent by LUP400 in reply to the RequestLastKey package
+Always has a data length of 2
+Example:
+0x01
+0x04
+0x02
+0x?? <-- This will be the last key value as a char or 0 if no key have been seen yet.
+0x?? <-- This will be either 0 (no key press seen yet), 1 (key pressed but not yet released), 2 (key pressed and released again)
+CRC32 byte 0
+CRC32 byte 1
+CRC32 byte 2
+CRC32 byte 3
+
+Type 0x05 package: RequestDisplayState
+Example:
+0x01
+0x05
+0x00
+CRC32 byte 0
+CRC32 byte 1
+CRC32 byte 2
+CRC32 byte 3
+
+Type 0x06 package: DisplayState
+Example:
+0x01
+0x06
+0x01
+0x?? <-- This will be 0 if not connected or 1 if connected.
+CRC32 byte 0
+CRC32 byte 1
+CRC32 byte 2
+CRC32 byte 3
+
+Type 0x07 package: ControlDisplay
+Example:
+0x01
+0x07
+0x01
+0x?? <-- 0 = Switch to Normal UI, 1 = Switch to Test UI
+CRC32 byte 0
+CRC32 byte 1
+CRC32 byte 2
+CRC32 byte 3
+
+Type 0x08 package: ControlDisplayResponse
+Example:
+0x01
+0x08
+0x01
+0x?? <-- 0 = Currently in Normal UI, 1 = Currently in Test UI
+CRC32 byte 0
+CRC32 byte 1
+CRC32 byte 2
+CRC32 byte 3
+
+Type 0x09 package: ControlUsbHost
+Example:
+0x01
+0x09
+0x01
+0x?? <-- 0 = Start Write/Read cycle, 1 = Stop Read/Write cycle
+CRC32 byte 0
+CRC32 byte 1
+CRC32 byte 2
+CRC32 byte 3
+
+Type 0x0A package: ControlUsbHostResponse
+Example:
+0x01
+0x0A
+0x01
+0x?? <-- 0 = Nothing, 1 = Read/Write cycle running, -1 if could not access memory stick
+CRC32 byte 0
+CRC32 byte 1
+CRC32 byte 2
+CRC32 byte 3
+
+Type 0x0B package: RequestUsbHostStatus
+Example:
+0x01
+0x0B
+0x00
+CRC32 byte 0
+CRC32 byte 1
+CRC32 byte 2
+CRC32 byte 3
+
+Type 0x0C package: UsbHostStatus
+Example:
+0x01
+0x0B
+0x01
+0x?? <-- 0 = Nothing, 1 = Read/Write cycle running, -1 if could not access memory stick
+0x???????? <-- Error count in read/write cycle
+CRC32 byte 0
+CRC32 byte 1
+CRC32 byte 2
+CRC32 byte 3
+
+Timeout and error rules:
+If a package is received with CRC32 it will be ignored and no reply sent.
+The request side (Call, RequestLastKey and so on) is in charge of finding out about package losses.
+If no reply is received within 200 ms is should be considered a timeout and a new request should be sent.
+

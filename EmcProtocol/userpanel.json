@@ -1,0 +1,200 @@
+{
+    "hal": {
+        "adcs": {
+            "battery_measurement": {
+              "device_node" : "/sys/bus/iio/devices/iio:device0/in_voltage6_raw"
+            },
+            "mains_measurement": {
+                "device_node" : "/sys/bus/iio/devices/iio:device0/in_voltage7_raw"
+            },
+            "temperature_measurement": {
+                "device_node" : "/sys/bus/iio/devices/iio:device0/in_voltage9_raw"
+            }
+        },
+        "adc_reference": {
+            "reference_voltage": "/sys/bus/iio/devices/iio:device0/in_voltage_scale"
+        },
+        "backlights": {
+            "backlight" : {
+                "device_node": "/sys/class/backlight/backlight",
+                "maximum_level" : 8
+            }
+        },
+        "displays": {
+            "display" :  {
+                "device_node": "/dev/fb0",
+                "connection_node": "/sys/class/drm/card-0-Unknown-1/status"
+            }
+        },
+        "keyboards": {
+           "keyboard" : {
+                "longpress": 3000,
+                "polltime": 100
+           }
+        },
+        "leds": {
+            "green" : {
+                "device_node" : "/sys/class/leds/green/brightness"
+            },
+            "red": {
+                "device_node" : "/sys/class/leds/red/brightness"
+            }
+        },
+        "pins": {
+            "aux_power_enable": {
+                "bus_number" : 2,
+                "pin_number" : 8
+            },
+            "on_off_detect" : {
+                "bus_number" : 1,
+                "pin_number" : 30
+            },
+            "battery_measure_enable": {
+                "bus_number" : 1,
+                "pin_number" : 31
+            },
+            "pmic_int_b" : {
+                "bus_number" : 1,
+                "pin_number" : 2
+            },
+            "gnss_enable": {
+                "bus_number" : 1,
+                "pin_number" : 3
+            },
+            "lmc_on_pulse": {
+                "bus_number" : 4,
+                "pin_number" : 24
+            },
+            "modem_reset": {
+                "bus_number" : 1,
+                "pin_number" : 19
+            },
+            "modem_io": {
+                "bus_number" : 1,
+                "pin_number" : 18
+            },
+            "usb_hub_reset": {
+                "bus_number" : 2,
+                "pin_number" : 14
+            },
+            "usb_modem_power_enable" : {
+                "bus_number" : 2,
+                "pin_number" : 11
+            },
+            "lmc_transmit_enable" : {
+                "bus_number" : 1,
+                "pin_number" : 26
+            },
+            "aux_power_overcurrent" : {
+                "bus_number" : 2,
+                "pin_number" : 9
+            },
+            "watchdog_enable" : {
+                "bus_number" : 1,
+                "pin_number" : 8
+            },
+            "aux_transmit_enable" : {
+                "bus_number" : 1,
+                "pin_number" : 27
+            },
+            "usb_5v_present" : {
+                "bus_number" : 4,
+                "pin_number" : 23
+            }
+        },
+        "pwms": {},
+        "rtcs": {
+            "rtc" : {
+                "ignored" : "ignored"
+            }
+        },
+        "serial_ports": {
+            "bluetooth": {
+                "device_node": "/dev/ttymxc1"
+            },
+            "lmc" : {
+                "device_node": "/dev/ttymxc2",
+                "baud_rate" : 115200,
+                "transmit_enable" : "lmc_transmit_enable",
+                "read_timeout" : 1000
+            },
+            "gnss": {
+                "device_node": "/dev/ttymxc3",
+                "baud_rate": 9600
+            },
+            "aux": {
+                "device_node": "/dev/ttymxc4",
+                "baud_rate" : 115200,
+                "transmit_enable": "aux_transmit_enable",
+                "read_timeout" : 1000
+            }
+        },
+        "usbs": {
+            "storage": {
+                "device_type": "storage",
+                "device_node": "/dev/sda1",
+                "mount_point": "/mnt/"
+            },
+            "modem": {
+                "device_type": "serial",
+                "device_node": "/dev/ttyUSB0"
+            },
+            "device" : {
+                "device_type": "device",
+                "device_node": "/dev/ttymxc0"
+            }
+        }
+    },
+    "console": {},
+    "firmware" : {
+        "format" : "lep_v1"
+    },
+    "leprot_slave_usb" : {
+        "type" : "serial",
+        "port" : "bluetooth"
+    },
+    "leprot_master" : {
+        "type" : "serial",
+        "port" : "aux",
+        "version_path" : "/scratch0/version.swid",
+        "definition_path" : "/scratch0/lmc60x.dbdef"
+    },
+    "logging" : {
+        "leprot_slave_usb" : {
+            "level" : "error",
+            "debug" : "cout",
+            "warn"  : "cerr",
+            "error" : "cerr"
+        },
+        "leprot_master" : {
+            "level" : "error",
+            "debug" : "cout",
+            "warn"  : "cerr",
+            "error" : "cerr"
+        },
+        "console" : {
+            "level" : "error",
+            "debug" : "cout",
+            "warn"  : "cerr",
+            "error" : "cerr"
+        },
+        "lup40x_ui" : {
+            "level" : "error",
+            "debug" : "cout",
+            "warn"  : "cerr",
+            "error" : "cerr"
+        },
+        "firmware" : {
+            "level" : "error",
+            "debug" : "cout",
+            "warn"  : "cerr",
+            "error" : "cerr"
+        },
+        "lmc70x_control" : {
+            "level" : "error",
+            "debug" : "cout",
+            "warn"  : "cerr",
+            "error" : "cerr"
+        }
+    }
+}
