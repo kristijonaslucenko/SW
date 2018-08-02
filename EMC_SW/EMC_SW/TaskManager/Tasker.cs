@@ -18,11 +18,13 @@ namespace EMC_SW.TaskManager
         private Thread TaskManagerThread;
         public TaskQueue LupTaskQueue { get; set; }
         internal Processor Processor { get; set; }
+        public bool stopAllFlag { get; set; }
 
         public Tasker(BaseDataHandler ProcessorDataHandler)
         {
             LupTaskQueue = new TaskQueue();
             Processor = new Processor(ProcessorDataHandler);
+            stopAllFlag = false;
         }     
 
         public void CreateTask(TaskLUP taskToBeCreated)
@@ -51,7 +53,7 @@ namespace EMC_SW.TaskManager
                     case GenConstants.GenConstants.CallTaskId:
                         Processor.ProcessCallTask(FirstQueueTask);
                         LupTaskQueue.Dequeue();
-                        if (FirstQueueTask.IsContinuous)
+                        if (FirstQueueTask.IsContinuous && !stopAllFlag)
                         {
                             LupTaskQueue.Enqueue(FirstQueueTask);
                         }
@@ -60,7 +62,7 @@ namespace EMC_SW.TaskManager
                     case GenConstants.GenConstants.ControlDisplayTaskId:
                         Processor.ProcessControlDisplayTask(FirstQueueTask);
                         LupTaskQueue.Dequeue();
-                        if (FirstQueueTask.IsContinuous)
+                        if (FirstQueueTask.IsContinuous && !stopAllFlag)
                         {
                             LupTaskQueue.Enqueue(FirstQueueTask);
                         }
@@ -69,7 +71,7 @@ namespace EMC_SW.TaskManager
                         //ControlUsbHostTaskId
                         Processor.ProcessControlUsbHostTask(FirstQueueTask);
                         LupTaskQueue.Dequeue();
-                        if (FirstQueueTask.IsContinuous)
+                        if (FirstQueueTask.IsContinuous && !stopAllFlag)
                         {
                             LupTaskQueue.Enqueue(FirstQueueTask);
                         }
@@ -78,7 +80,7 @@ namespace EMC_SW.TaskManager
                     case GenConstants.GenConstants.RequestLastSeenKeyTaskId:
                         Processor.ProcessRequestLastSeenKeyTask(FirstQueueTask);
                         LupTaskQueue.Dequeue();
-                        if (FirstQueueTask.IsContinuous)
+                        if (FirstQueueTask.IsContinuous && !stopAllFlag)
                         {
                             LupTaskQueue.Enqueue(FirstQueueTask);
                         }
@@ -87,7 +89,7 @@ namespace EMC_SW.TaskManager
                     case GenConstants.GenConstants.RequestDisplayStateTaskId:
                         Processor.ProcessRequestDisplayStateTask(FirstQueueTask);
                         LupTaskQueue.Dequeue();
-                        if (FirstQueueTask.IsContinuous)
+                        if (FirstQueueTask.IsContinuous && !stopAllFlag)
                         {
                             LupTaskQueue.Enqueue(FirstQueueTask);
                         }
@@ -96,13 +98,14 @@ namespace EMC_SW.TaskManager
                     case GenConstants.GenConstants.RequestUsbHostStatusTaskId:
                         Processor.ProcessRequestUsbHostStatusTask(FirstQueueTask);
                         LupTaskQueue.Dequeue();
-                        if (FirstQueueTask.IsContinuous)
+                        if (FirstQueueTask.IsContinuous && !stopAllFlag)
                         {
                             LupTaskQueue.Enqueue(FirstQueueTask);
                         }
                         break;
                         //clean task queue
                     case GenConstants.GenConstants.StopTaskId:
+                        stopAllFlag = true;
                         LupTaskQueue.CleanQueue();
                         break;
                 }

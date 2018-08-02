@@ -135,7 +135,19 @@ Type 0x0C package: UsbHostStatus
 Example:
 0x01
 0x0B
+0x02
+0x?? <-- 0 = Nothing, 1 = Read/Write cycle running, -1 if could not access memory stick
+0x???????? <-- Error count in read/write cycle
+CRC32 byte 0
+CRC32 byte 1
+CRC32 byte 2
+CRC32 byte 3
+
+Type 0x0D package: UsbHostStatusModem
+Example:
 0x01
+0x0B
+0x02
 0x?? <-- 0 = Nothing, 1 = Read/Write cycle running, -1 if could not access memory stick
 0x???????? <-- Error count in read/write cycle
 CRC32 byte 0

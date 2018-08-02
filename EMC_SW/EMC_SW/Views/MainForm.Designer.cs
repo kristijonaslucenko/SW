@@ -29,49 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label21 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox36 = new System.Windows.Forms.TextBox();
-            this.textBox37 = new System.Windows.Forms.TextBox();
-            this.textBox38 = new System.Windows.Forms.TextBox();
-            this.textBox39 = new System.Windows.Forms.TextBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.textBox32 = new System.Windows.Forms.TextBox();
-            this.textBox33 = new System.Windows.Forms.TextBox();
-            this.textBox34 = new System.Windows.Forms.TextBox();
-            this.textBox35 = new System.Windows.Forms.TextBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.textBox29 = new System.Windows.Forms.TextBox();
-            this.textBox30 = new System.Windows.Forms.TextBox();
-            this.textBox31 = new System.Windows.Forms.TextBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.textBox27 = new System.Windows.Forms.TextBox();
-            this.textBox26 = new System.Windows.Forms.TextBox();
-            this.textBox25 = new System.Windows.Forms.TextBox();
-            this.textBox24 = new System.Windows.Forms.TextBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label23 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label22 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label20 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rs232ttlStatusLbl = new System.Windows.Forms.Label();
             this.dev2StatusLbl = new System.Windows.Forms.Label();
@@ -93,8 +50,8 @@
             this.RS232comBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.usbHostModemErrorCount = new System.Windows.Forms.TextBox();
+            this.usbHostModemStatusTxtBx = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.usbHostErrorCountText = new System.Windows.Forms.TextBox();
             this.UsbHostStatusText = new System.Windows.Forms.TextBox();
@@ -159,453 +116,13 @@
             this.keyPressEventText = new System.Windows.Forms.TextBox();
             this.displayConnStatusText = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.rqstDispStateBtn = new System.Windows.Forms.Button();
+            this.testUIbtn = new System.Windows.Forms.Button();
+            this.nrmUIbtn = new System.Windows.Forms.Button();
+            this.kpdStatus = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.panel2);
-            this.groupBox1.Controls.Add(this.panel6);
-            this.groupBox1.Controls.Add(this.panel5);
-            this.groupBox1.Controls.Add(this.panel4);
-            this.groupBox1.Controls.Add(this.panel3);
-            this.groupBox1.Controls.Add(this.panel1);
-            this.groupBox1.Location = new System.Drawing.Point(29, 56);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(422, 394);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "LUP400 display";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label21);
-            this.panel2.Location = new System.Drawing.Point(123, 20);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(111, 133);
-            this.panel2.TabIndex = 1;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(3, 4);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(78, 20);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "SUPPLY";
-            // 
-            // panel6
-            // 
-            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel6.Controls.Add(this.textBox36);
-            this.panel6.Controls.Add(this.textBox37);
-            this.panel6.Controls.Add(this.textBox38);
-            this.panel6.Controls.Add(this.textBox39);
-            this.panel6.Controls.Add(this.pictureBox13);
-            this.panel6.Controls.Add(this.pictureBox14);
-            this.panel6.Controls.Add(this.pictureBox15);
-            this.panel6.Controls.Add(this.pictureBox16);
-            this.panel6.Controls.Add(this.textBox32);
-            this.panel6.Controls.Add(this.textBox33);
-            this.panel6.Controls.Add(this.textBox34);
-            this.panel6.Controls.Add(this.textBox35);
-            this.panel6.Controls.Add(this.pictureBox9);
-            this.panel6.Controls.Add(this.pictureBox10);
-            this.panel6.Controls.Add(this.pictureBox11);
-            this.panel6.Controls.Add(this.pictureBox12);
-            this.panel6.Controls.Add(this.textBox28);
-            this.panel6.Controls.Add(this.textBox29);
-            this.panel6.Controls.Add(this.textBox30);
-            this.panel6.Controls.Add(this.textBox31);
-            this.panel6.Controls.Add(this.pictureBox5);
-            this.panel6.Controls.Add(this.pictureBox6);
-            this.panel6.Controls.Add(this.pictureBox7);
-            this.panel6.Controls.Add(this.pictureBox8);
-            this.panel6.Controls.Add(this.textBox27);
-            this.panel6.Controls.Add(this.textBox26);
-            this.panel6.Controls.Add(this.textBox25);
-            this.panel6.Controls.Add(this.textBox24);
-            this.panel6.Controls.Add(this.pictureBox3);
-            this.panel6.Controls.Add(this.pictureBox4);
-            this.panel6.Controls.Add(this.pictureBox2);
-            this.panel6.Controls.Add(this.pictureBox1);
-            this.panel6.Location = new System.Drawing.Point(6, 223);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(406, 159);
-            this.panel6.TabIndex = 4;
-            // 
-            // textBox36
-            // 
-            this.textBox36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox36.Location = new System.Drawing.Point(375, 127);
-            this.textBox36.Name = "textBox36";
-            this.textBox36.Size = new System.Drawing.Size(22, 21);
-            this.textBox36.TabIndex = 31;
-            this.textBox36.Text = " ";
-            this.textBox36.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox37
-            // 
-            this.textBox37.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox37.Location = new System.Drawing.Point(375, 88);
-            this.textBox37.Name = "textBox37";
-            this.textBox37.Size = new System.Drawing.Size(22, 21);
-            this.textBox37.TabIndex = 30;
-            this.textBox37.Text = " ";
-            this.textBox37.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox38
-            // 
-            this.textBox38.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox38.Location = new System.Drawing.Point(375, 49);
-            this.textBox38.Name = "textBox38";
-            this.textBox38.Size = new System.Drawing.Size(22, 21);
-            this.textBox38.TabIndex = 29;
-            this.textBox38.Text = " ";
-            this.textBox38.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox39
-            // 
-            this.textBox39.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox39.Location = new System.Drawing.Point(375, 13);
-            this.textBox39.Name = "textBox39";
-            this.textBox39.Size = new System.Drawing.Size(22, 21);
-            this.textBox39.TabIndex = 28;
-            this.textBox39.Text = " ";
-            this.textBox39.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.Location = new System.Drawing.Point(330, 120);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(39, 36);
-            this.pictureBox13.TabIndex = 27;
-            this.pictureBox13.TabStop = false;
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.Location = new System.Drawing.Point(330, 81);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(39, 36);
-            this.pictureBox14.TabIndex = 26;
-            this.pictureBox14.TabStop = false;
-            // 
-            // pictureBox15
-            // 
-            this.pictureBox15.Location = new System.Drawing.Point(330, 42);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(39, 36);
-            this.pictureBox15.TabIndex = 25;
-            this.pictureBox15.TabStop = false;
-            // 
-            // pictureBox16
-            // 
-            this.pictureBox16.Location = new System.Drawing.Point(330, 3);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(39, 36);
-            this.pictureBox16.TabIndex = 24;
-            this.pictureBox16.TabStop = false;
-            // 
-            // textBox32
-            // 
-            this.textBox32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox32.Location = new System.Drawing.Point(265, 127);
-            this.textBox32.Name = "textBox32";
-            this.textBox32.Size = new System.Drawing.Size(22, 21);
-            this.textBox32.TabIndex = 23;
-            this.textBox32.Text = " ";
-            this.textBox32.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox33
-            // 
-            this.textBox33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox33.Location = new System.Drawing.Point(265, 88);
-            this.textBox33.Name = "textBox33";
-            this.textBox33.Size = new System.Drawing.Size(22, 21);
-            this.textBox33.TabIndex = 22;
-            this.textBox33.Text = " ";
-            this.textBox33.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox34
-            // 
-            this.textBox34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox34.Location = new System.Drawing.Point(265, 49);
-            this.textBox34.Name = "textBox34";
-            this.textBox34.Size = new System.Drawing.Size(22, 21);
-            this.textBox34.TabIndex = 21;
-            this.textBox34.Text = " ";
-            this.textBox34.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox35
-            // 
-            this.textBox35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox35.Location = new System.Drawing.Point(265, 13);
-            this.textBox35.Name = "textBox35";
-            this.textBox35.Size = new System.Drawing.Size(22, 21);
-            this.textBox35.TabIndex = 20;
-            this.textBox35.Text = " ";
-            this.textBox35.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Location = new System.Drawing.Point(220, 120);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(39, 36);
-            this.pictureBox9.TabIndex = 19;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Location = new System.Drawing.Point(220, 81);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(39, 36);
-            this.pictureBox10.TabIndex = 18;
-            this.pictureBox10.TabStop = false;
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Location = new System.Drawing.Point(220, 42);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(39, 36);
-            this.pictureBox11.TabIndex = 17;
-            this.pictureBox11.TabStop = false;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Location = new System.Drawing.Point(220, 3);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(39, 36);
-            this.pictureBox12.TabIndex = 16;
-            this.pictureBox12.TabStop = false;
-            // 
-            // textBox28
-            // 
-            this.textBox28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox28.Location = new System.Drawing.Point(157, 127);
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(22, 21);
-            this.textBox28.TabIndex = 15;
-            this.textBox28.Text = " ";
-            this.textBox28.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox29
-            // 
-            this.textBox29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox29.Location = new System.Drawing.Point(157, 88);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(22, 21);
-            this.textBox29.TabIndex = 14;
-            this.textBox29.Text = " ";
-            this.textBox29.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox30
-            // 
-            this.textBox30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox30.Location = new System.Drawing.Point(157, 49);
-            this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(22, 21);
-            this.textBox30.TabIndex = 13;
-            this.textBox30.Text = " ";
-            this.textBox30.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox31
-            // 
-            this.textBox31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox31.Location = new System.Drawing.Point(157, 13);
-            this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(22, 21);
-            this.textBox31.TabIndex = 12;
-            this.textBox31.Text = " ";
-            this.textBox31.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Location = new System.Drawing.Point(112, 120);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(39, 36);
-            this.pictureBox5.TabIndex = 11;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Location = new System.Drawing.Point(112, 81);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(39, 36);
-            this.pictureBox6.TabIndex = 10;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Location = new System.Drawing.Point(112, 42);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(39, 36);
-            this.pictureBox7.TabIndex = 9;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Location = new System.Drawing.Point(112, 3);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(39, 36);
-            this.pictureBox8.TabIndex = 8;
-            this.pictureBox8.TabStop = false;
-            // 
-            // textBox27
-            // 
-            this.textBox27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox27.Location = new System.Drawing.Point(48, 127);
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(22, 21);
-            this.textBox27.TabIndex = 7;
-            this.textBox27.Text = " ";
-            this.textBox27.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox26
-            // 
-            this.textBox26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox26.Location = new System.Drawing.Point(48, 88);
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(22, 21);
-            this.textBox26.TabIndex = 6;
-            this.textBox26.Text = " ";
-            this.textBox26.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox25
-            // 
-            this.textBox25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox25.Location = new System.Drawing.Point(48, 49);
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(22, 21);
-            this.textBox25.TabIndex = 5;
-            this.textBox25.Text = " ";
-            this.textBox25.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox24
-            // 
-            this.textBox24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox24.Location = new System.Drawing.Point(48, 13);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(22, 21);
-            this.textBox24.TabIndex = 4;
-            this.textBox24.Text = " ";
-            this.textBox24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(3, 120);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(39, 36);
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Location = new System.Drawing.Point(3, 81);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(39, 36);
-            this.pictureBox4.TabIndex = 2;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(3, 42);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(39, 36);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(39, 36);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // panel5
-            // 
-            this.panel5.Location = new System.Drawing.Point(6, 159);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(406, 58);
-            this.panel5.TabIndex = 3;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.label23);
-            this.panel4.Location = new System.Drawing.Point(240, 90);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(172, 63);
-            this.panel4.TabIndex = 2;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(38, 20);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(47, 29);
-            this.label23.TabIndex = 2;
-            this.label23.Text = "° C";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.label22);
-            this.panel3.Location = new System.Drawing.Point(240, 19);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(172, 63);
-            this.panel3.TabIndex = 1;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(3, 5);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(82, 20);
-            this.label22.TabIndex = 1;
-            this.label22.Text = "RETURN";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label20);
-            this.panel1.Location = new System.Drawing.Point(6, 20);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(111, 133);
-            this.panel1.TabIndex = 0;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(3, 4);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(95, 20);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "SETPOINT";
             // 
             // groupBox2
             // 
@@ -822,8 +339,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.usbHostModemErrorCount);
+            this.groupBox3.Controls.Add(this.usbHostModemStatusTxtBx);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.usbHostErrorCountText);
             this.groupBox3.Controls.Add(this.UsbHostStatusText);
@@ -884,27 +401,27 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "COM Control";
             // 
-            // textBox2
+            // usbHostModemErrorCount
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(210, 297);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(52, 20);
-            this.textBox2.TabIndex = 64;
-            this.textBox2.Text = " ";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usbHostModemErrorCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usbHostModemErrorCount.Location = new System.Drawing.Point(210, 297);
+            this.usbHostModemErrorCount.Name = "usbHostModemErrorCount";
+            this.usbHostModemErrorCount.ReadOnly = true;
+            this.usbHostModemErrorCount.Size = new System.Drawing.Size(52, 20);
+            this.usbHostModemErrorCount.TabIndex = 64;
+            this.usbHostModemErrorCount.Text = " ";
+            this.usbHostModemErrorCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox3
+            // usbHostModemStatusTxtBx
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(38, 297);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(110, 20);
-            this.textBox3.TabIndex = 63;
-            this.textBox3.Text = " ";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usbHostModemStatusTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usbHostModemStatusTxtBx.Location = new System.Drawing.Point(38, 297);
+            this.usbHostModemStatusTxtBx.Name = "usbHostModemStatusTxtBx";
+            this.usbHostModemStatusTxtBx.ReadOnly = true;
+            this.usbHostModemStatusTxtBx.Size = new System.Drawing.Size(110, 20);
+            this.usbHostModemStatusTxtBx.TabIndex = 63;
+            this.usbHostModemStatusTxtBx.Text = " ";
+            this.usbHostModemStatusTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label10
             // 
@@ -1454,7 +971,7 @@
             // keyPressCountTextBox
             // 
             this.keyPressCountTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.keyPressCountTextBox.Location = new System.Drawing.Point(147, 532);
+            this.keyPressCountTextBox.Location = new System.Drawing.Point(155, 127);
             this.keyPressCountTextBox.Name = "keyPressCountTextBox";
             this.keyPressCountTextBox.ReadOnly = true;
             this.keyPressCountTextBox.Size = new System.Drawing.Size(52, 20);
@@ -1465,7 +982,7 @@
             // lastKeyPressedTextBox
             // 
             this.lastKeyPressedTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastKeyPressedTextBox.Location = new System.Drawing.Point(35, 532);
+            this.lastKeyPressedTextBox.Location = new System.Drawing.Point(43, 127);
             this.lastKeyPressedTextBox.Name = "lastKeyPressedTextBox";
             this.lastKeyPressedTextBox.ReadOnly = true;
             this.lastKeyPressedTextBox.Size = new System.Drawing.Size(52, 20);
@@ -1476,7 +993,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(32, 516);
+            this.label24.Location = new System.Drawing.Point(40, 111);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(89, 13);
             this.label24.TabIndex = 68;
@@ -1485,7 +1002,7 @@
             // displayStatusTextBox
             // 
             this.displayStatusTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayStatusTextBox.Location = new System.Drawing.Point(35, 493);
+            this.displayStatusTextBox.Location = new System.Drawing.Point(43, 88);
             this.displayStatusTextBox.Name = "displayStatusTextBox";
             this.displayStatusTextBox.ReadOnly = true;
             this.displayStatusTextBox.Size = new System.Drawing.Size(98, 20);
@@ -1496,7 +1013,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(32, 477);
+            this.label25.Location = new System.Drawing.Point(40, 72);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(88, 13);
             this.label25.TabIndex = 65;
@@ -1505,7 +1022,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(144, 516);
+            this.label26.Location = new System.Drawing.Point(152, 111);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(85, 13);
             this.label26.TabIndex = 71;
@@ -1514,7 +1031,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(239, 516);
+            this.label27.Location = new System.Drawing.Point(247, 111);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(85, 13);
             this.label27.TabIndex = 73;
@@ -1523,10 +1040,10 @@
             // keyPressEventText
             // 
             this.keyPressEventText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.keyPressEventText.Location = new System.Drawing.Point(242, 532);
+            this.keyPressEventText.Location = new System.Drawing.Point(250, 127);
             this.keyPressEventText.Name = "keyPressEventText";
             this.keyPressEventText.ReadOnly = true;
-            this.keyPressEventText.Size = new System.Drawing.Size(52, 20);
+            this.keyPressEventText.Size = new System.Drawing.Size(141, 20);
             this.keyPressEventText.TabIndex = 72;
             this.keyPressEventText.Text = " ";
             this.keyPressEventText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1534,7 +1051,7 @@
             // displayConnStatusText
             // 
             this.displayConnStatusText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.displayConnStatusText.Location = new System.Drawing.Point(35, 588);
+            this.displayConnStatusText.Location = new System.Drawing.Point(43, 220);
             this.displayConnStatusText.Name = "displayConnStatusText";
             this.displayConnStatusText.ReadOnly = true;
             this.displayConnStatusText.Size = new System.Drawing.Size(98, 20);
@@ -1545,17 +1062,61 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(32, 572);
+            this.label28.Location = new System.Drawing.Point(40, 204);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(131, 13);
             this.label28.TabIndex = 74;
             this.label28.Text = "Display Connection Status";
+            // 
+            // rqstDispStateBtn
+            // 
+            this.rqstDispStateBtn.Location = new System.Drawing.Point(169, 217);
+            this.rqstDispStateBtn.Name = "rqstDispStateBtn";
+            this.rqstDispStateBtn.Size = new System.Drawing.Size(133, 23);
+            this.rqstDispStateBtn.TabIndex = 76;
+            this.rqstDispStateBtn.Text = "Request Display State";
+            this.rqstDispStateBtn.UseVisualStyleBackColor = true;
+            this.rqstDispStateBtn.Click += new System.EventHandler(this.rqstDispStateBtn_Click);
+            // 
+            // testUIbtn
+            // 
+            this.testUIbtn.Location = new System.Drawing.Point(169, 85);
+            this.testUIbtn.Name = "testUIbtn";
+            this.testUIbtn.Size = new System.Drawing.Size(68, 23);
+            this.testUIbtn.TabIndex = 77;
+            this.testUIbtn.Text = "Test UI";
+            this.testUIbtn.UseVisualStyleBackColor = true;
+            this.testUIbtn.Click += new System.EventHandler(this.testUIbtn_Click);
+            // 
+            // nrmUIbtn
+            // 
+            this.nrmUIbtn.Location = new System.Drawing.Point(243, 85);
+            this.nrmUIbtn.Name = "nrmUIbtn";
+            this.nrmUIbtn.Size = new System.Drawing.Size(68, 23);
+            this.nrmUIbtn.TabIndex = 78;
+            this.nrmUIbtn.Text = "Normal UI";
+            this.nrmUIbtn.UseVisualStyleBackColor = true;
+            this.nrmUIbtn.Click += new System.EventHandler(this.nrmUIbtn_Click);
+            // 
+            // kpdStatus
+            // 
+            this.kpdStatus.Location = new System.Drawing.Point(43, 153);
+            this.kpdStatus.Name = "kpdStatus";
+            this.kpdStatus.Size = new System.Drawing.Size(98, 23);
+            this.kpdStatus.TabIndex = 79;
+            this.kpdStatus.Text = "Keypad Status";
+            this.kpdStatus.UseVisualStyleBackColor = true;
+            this.kpdStatus.Click += new System.EventHandler(this.kpdStatus_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.kpdStatus);
+            this.Controls.Add(this.nrmUIbtn);
+            this.Controls.Add(this.testUIbtn);
+            this.Controls.Add(this.rqstDispStateBtn);
             this.Controls.Add(this.displayConnStatusText);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.label27);
@@ -1568,36 +1129,8 @@
             this.Controls.Add(this.label25);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Name = "MainForm";
             this.Text = "LUP400";
-            this.groupBox1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1608,8 +1141,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button RS232stopBtn;
@@ -1666,60 +1197,18 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox USBdev2ComBox;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox textBox36;
-        private System.Windows.Forms.TextBox textBox37;
-        private System.Windows.Forms.TextBox textBox38;
-        private System.Windows.Forms.TextBox textBox39;
-        private System.Windows.Forms.PictureBox pictureBox13;
-        private System.Windows.Forms.PictureBox pictureBox14;
-        private System.Windows.Forms.PictureBox pictureBox15;
-        private System.Windows.Forms.PictureBox pictureBox16;
-        private System.Windows.Forms.TextBox textBox32;
-        private System.Windows.Forms.TextBox textBox33;
-        private System.Windows.Forms.TextBox textBox34;
-        private System.Windows.Forms.TextBox textBox35;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.TextBox textBox28;
-        private System.Windows.Forms.TextBox textBox29;
-        private System.Windows.Forms.TextBox textBox30;
-        private System.Windows.Forms.TextBox textBox31;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.TextBox textBox27;
-        private System.Windows.Forms.TextBox textBox26;
-        private System.Windows.Forms.TextBox textBox25;
-        private System.Windows.Forms.TextBox textBox24;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Timer GUIrefreshTimer;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox usbHostErrorCountText;
         private System.Windows.Forms.TextBox UsbHostStatusText;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox usbHostModemErrorCount;
+        private System.Windows.Forms.TextBox usbHostModemStatusTxtBx;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox keyPressCountTextBox;
         private System.Windows.Forms.TextBox lastKeyPressedTextBox;
@@ -1739,6 +1228,10 @@
         private System.Windows.Forms.Label dev1StatusLbl;
         private System.Windows.Forms.Label rs485StatusLbl;
         private System.Windows.Forms.Label rs232StatusLbl;
+        private System.Windows.Forms.Button rqstDispStateBtn;
+        private System.Windows.Forms.Button testUIbtn;
+        private System.Windows.Forms.Button nrmUIbtn;
+        private System.Windows.Forms.Button kpdStatus;
     }
 }
 

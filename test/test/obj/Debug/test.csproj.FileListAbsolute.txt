@@ -18,3 +18,13 @@ C:\Users\MS\Documents\GitHub\SW\test\test\bin\Debug\test.pdb
 C:\Users\MS\Documents\GitHub\SW\test\test\bin\Debug\EmcProtocol.dll
 C:\Users\MS\Documents\GitHub\SW\test\test\bin\Debug\EmcProtocol.pdb
 C:\Users\MS\Documents\GitHub\SW\test\test\obj\Debug\test.csproj.CopyComplete
+C:\Users\KLU\Documents\GitHub\EMC\test\test\bin\Debug\test.exe.config
+C:\Users\KLU\Documents\GitHub\EMC\test\test\bin\Debug\test.exe
+C:\Users\KLU\Documents\GitHub\EMC\test\test\bin\Debug\test.pdb
+C:\Users\KLU\Documents\GitHub\EMC\test\test\bin\Debug\EmcProtocol.dll
+C:\Users\KLU\Documents\GitHub\EMC\test\test\bin\Debug\EmcProtocol.pdb
+C:\Users\KLU\Documents\GitHub\EMC\test\test\obj\Debug\test.csprojAssemblyReference.cache
+C:\Users\KLU\Documents\GitHub\EMC\test\test\obj\Debug\test.csproj.CoreCompileInputs.cache
+C:\Users\KLU\Documents\GitHub\EMC\test\test\obj\Debug\test.csproj.CopyComplete
+C:\Users\KLU\Documents\GitHub\EMC\test\test\obj\Debug\test.exe
+C:\Users\KLU\Documents\GitHub\EMC\test\test\obj\Debug\test.pdb

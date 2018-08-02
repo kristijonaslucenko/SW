@@ -15,7 +15,7 @@ namespace serialConsole
             try
             {
                 //open serial port with given arguments COM and baudrate
-                SerialPort s1 = new SerialPort("COM5", 115200);
+                SerialPort s1 = new SerialPort("COM15", 115200);
                 s1.ReadTimeout = 200;
                 s1.Open();
                 // Console.WriteLine(args[0].ToString());
@@ -58,7 +58,11 @@ namespace serialConsole
                                     CtrlUsbHostResponse(s1);
                                     break;
                             }*/
-                            CtrlDisplay(s1);
+                            //CtrlDisplayResponse(s1);
+                            //RequestLastKeyResponse(s1);
+                            //DisplayStateResponse(s1);
+                            UsbHostStatusResponse(s1);
+                            //CtrlUsbHostResponse(s1);
                         }
                     }
                     catch (Exception ex)
@@ -74,6 +78,25 @@ namespace serialConsole
         }
 
         
+        private static void UsbHostStatusResponse(SerialPort s1)
+        {
+            Console.Write(" incomming:");
+            //Console.WriteLine(s);
+
+            byte[] buf1 = new byte[EmcProtocol.UsbHostStatus.ByteSize];
+            buf1 = EmcProtocol.UsbHostStatus.CreateTestResponseMessage(0, 10);
+            s1.Write(buf1, 0, buf1.Length);
+        }
+
+        private static void DisplayStateResponse(SerialPort s1)
+        {
+            Console.Write(" incomming:");
+            //Console.WriteLine(s);
+
+            byte[] buf1 = new byte[EmcProtocol.DisplayState.ByteSize];
+            buf1 = EmcProtocol.DisplayState.CreateTestResponseMessage(1);
+            s1.Write(buf1, 0, buf1.Length);
+        }
 
         private static void Ack(SerialPort s1)
         {
@@ -91,20 +114,30 @@ namespace serialConsole
             //Console.WriteLine(s);
 
             byte[] buf1 = new byte[EmcProtocol.ControlUsbHostResponse.ByteSize];
-            buf1 = EmcProtocol.ControlUsbHostResponse.CreateTestResponseMessage(1);
+            buf1 = EmcProtocol.ControlUsbHostResponse.CreateTestResponseMessage(2);
             s1.Write(buf1, 0, buf1.Length);
         }
         //0 = Currently in Normal UI, 1 = Currently in Test UI
-        private static void CtrlDisplay(SerialPort s1)
+        private static void CtrlDisplayResponse(SerialPort s1)
         {
             Console.Write(" incomming:");
             //Console.WriteLine(s);
 
             byte[] buf1 = new byte[EmcProtocol.ControlDisplayResponse.ByteSize];
-            buf1 = EmcProtocol.ControlDisplayResponse.CreateTestResponseMessage(1);
+            buf1 = EmcProtocol.ControlDisplayResponse.CreateTestResponseMessage(0);
             s1.Write(buf1, 0, buf1.Length);
         }
+        //0x?? <-- This will be the last key value as a char or 0 if no key have been seen yet.
+        //0x?? <-- This will be either 0 (no key press seen yet), 1 (key pressed but not yet released), 2 (key pressed and released again)        
+        private static void RequestLastKeyResponse(SerialPort s1)
+        {
+            Console.Write(" incomming:");
+            //Console.WriteLine(s);
 
+            byte[] buf1 = new byte[EmcProtocol.LastKeySeen.ByteSize];
+            buf1 = EmcProtocol.LastKeySeen.CreateTestResponseMessage(0x58, 1);
+            s1.Write(buf1, 0, buf1.Length);
+        }
 
 
 
