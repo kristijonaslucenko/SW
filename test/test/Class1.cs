@@ -15,7 +15,7 @@ namespace serialConsole
             try
             {
                 //open serial port with given arguments COM and baudrate
-                SerialPort s1 = new SerialPort("COM15", 115200);
+                SerialPort s1 = new SerialPort("COM15", 9600);
                 s1.ReadTimeout = 200;
                 s1.Open();
                 // Console.WriteLine(args[0].ToString());
@@ -61,8 +61,10 @@ namespace serialConsole
                             //CtrlDisplayResponse(s1);
                             //RequestLastKeyResponse(s1);
                             //DisplayStateResponse(s1);
-                            UsbHostStatusResponse(s1);
+                            //UsbHostStatusResponse(s1);
                             //CtrlUsbHostResponse(s1);
+                            //UsbHostModemStatusResponse(s1);
+                            Ack(s1);
                         }
                     }
                     catch (Exception ex)
@@ -77,14 +79,40 @@ namespace serialConsole
             }
         }
 
-        
+        //0x?? <-- 0 = Nothing, 1 = Read/Write cycle running, -1 (2) if could not access memory stick
+        //0x???????? <-- Error count in read/write cycle
+
+        private static void UsbHostModemStatusResponse(SerialPort s1)
+        {
+            Console.Write(" incomming:");
+            //Console.WriteLine(s);
+
+            byte[] buf1 = new byte[EmcProtocol.UsbHostModemStatus.ByteSize];
+            buf1 = EmcProtocol.UsbHostModemStatus.CreateTestResponseMessage(1, 25);
+            s1.Write(buf1, 0, buf1.Length);
+        }
+
+        //0 = Nothing, 1 = Read/Write cycle running, -1 if could not access memory stick
+        private static void CtrlUsbHostModemResponse(SerialPort s1)
+        {
+            Console.Write(" incomming:");
+            //Console.WriteLine(s);
+
+            byte[] buf1 = new byte[EmcProtocol.ControlUsbHostModemResponse.ByteSize];
+            buf1 = EmcProtocol.ControlUsbHostModemResponse.CreateTestResponseMessage(2);
+            s1.Write(buf1, 0, buf1.Length);
+        }
+
+        //0x?? <-- 0 = Nothing, 1 = Read/Write cycle running, -1 (2) if could not access memory stick
+        //0x???????? <-- Error count in read/write cycle
+
         private static void UsbHostStatusResponse(SerialPort s1)
         {
             Console.Write(" incomming:");
             //Console.WriteLine(s);
 
             byte[] buf1 = new byte[EmcProtocol.UsbHostStatus.ByteSize];
-            buf1 = EmcProtocol.UsbHostStatus.CreateTestResponseMessage(0, 10);
+            buf1 = EmcProtocol.UsbHostStatus.CreateTestResponseMessage(2, 255);
             s1.Write(buf1, 0, buf1.Length);
         }
 
@@ -100,7 +128,7 @@ namespace serialConsole
 
         private static void Ack(SerialPort s1)
         {
-            Console.Write(" incomming:");
+            //Console.Write(" incomming:");
             //Console.WriteLine(s);
 
             byte[] buf1 = new byte[EmcProtocol.Ack.ByteSize];

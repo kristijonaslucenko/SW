@@ -36,6 +36,8 @@ namespace EMC_SW
         TaskLUP RequestDisplayState = null;
         TaskLUP RequestUsbHostStatus = null;
         TaskLUP UsbControlTask = null;
+        TaskLUP RequestUsbHostModemStatus = null;
+        TaskLUP UsbModemControlTask = null;
         TaskLUP StopAllTask = null;
 
         bool rs232Started = false;
@@ -92,7 +94,7 @@ namespace EMC_SW
             {
                 AddedTask = EmcProtocol.Call.Create(),
                 id = GenConstants.GenConstants.CallTaskId,
-                Repetition = 3,     //min 3
+                Repetition = 1,     //min 3
                 IsContinuous = true
             };
 
@@ -345,27 +347,27 @@ namespace EMC_SW
                                 usbHostErrorCountText.Text = localResultsRS485.usbHostErrorCount.ToString();
                             }
                             break;
-                        //RequestUsbHostStatus
+                        //RequestUsbHostModemStatus
                         case GenConstants.GenConstants.RequestUsbHostModemStatusTaskId:
 
-                            localResultsRS485.usbHostStatus = LocalPeekedRecord.Status;
-                            localResultsRS485.usbHostErrorCount = LocalPeekedRecord.OpErrors;
+                            localResultsRS485.usbHostModemStatus = LocalPeekedRecord.Status;
+                            localResultsRS485.usbHostModemErrorCount = LocalPeekedRecord.OpErrors;
 
-                            if (localResultsRS485.usbHostStatus == GenConstants.GenConstants.usbHostStatusNA && LocalPeekedRecord.Received != 0)
+                            if (localResultsRS485.usbHostModemStatus == GenConstants.GenConstants.usbHostStatusNA && LocalPeekedRecord.Received != 0)
                             {
-                                UsbHostStatusText.Text = GenConstants.GenConstants.usbHostStatusNAtext;
+                                UsbHostModemStatusText.Text = GenConstants.GenConstants.usbHostStatusNAtext;
                             }
-                            else if (localResultsRS485.usbHostStatus == GenConstants.GenConstants.usbHostStatusNotAcc && LocalPeekedRecord.Received != 0)
+                            else if (localResultsRS485.usbHostModemStatus == GenConstants.GenConstants.usbHostStatusNotAcc && LocalPeekedRecord.Received != 0)
                             {
-                                UsbHostStatusText.Text = GenConstants.GenConstants.usbHostStatusNotAccText;
+                                UsbHostModemStatusText.Text = GenConstants.GenConstants.usbHostStatusNotAccText;
                             }
-                            else if (localResultsRS485.usbHostStatus == GenConstants.GenConstants.usbHostStatusRWrunn && LocalPeekedRecord.Received != 0)
+                            else if (localResultsRS485.usbHostModemStatus == GenConstants.GenConstants.usbHostStatusRWrunn && LocalPeekedRecord.Received != 0)
                             {
-                                UsbHostStatusText.Text = GenConstants.GenConstants.usbHostStatusRWrunnText;
+                                UsbHostModemStatusText.Text = GenConstants.GenConstants.usbHostStatusRWrunnText;
                             }
                             if (LocalPeekedRecord.Received != 0)
                             {
-                                usbHostErrorCountText.Text = localResultsRS485.usbHostErrorCount.ToString();
+                                usbHostModemErrorCountText.Text = localResultsRS485.usbHostModemErrorCount.ToString();
                             }
                             break;
                     }
@@ -481,15 +483,22 @@ namespace EMC_SW
                     Repetition = 1,
                     IsContinuous = false
                 };
-
+                RequestUsbHostModemStatus = new TaskLUP
+                {
+                    AddedTask = EmcProtocol.RequestUsbHostModemStatus.Create(),
+                    id = GenConstants.GenConstants.RequestUsbHostModemStatusTaskId,
+                    Repetition = 1,
+                    IsContinuous = false
+                };
                 RS485controller.TaskManager.stopAllFlag = false;
                 RS485controller.TaskQueueSize = GenConstants.GenConstants.taskQueueSize; //deal with this one
                 RS485controller.TransmissionResultsSize = GenConstants.GenConstants.transmissionResultsSize; //deal with this one
-                //RS485controller.TaskManager.CreateTask(GenCallingTask);
+                RS485controller.TaskManager.CreateTask(GenCallingTask);
                 //RS485controller.TaskManager.CreateTask(UsbControlTask);
                 //RS485controller.TaskManager.CreateTask(InitiateLCDinTestMode);
                 //RS485controller.TaskManager.CreateTask(GenCallingTask);
-                RS485controller.TaskManager.CreateTask(RequestUsbHostStatus);
+                //RS485controller.TaskManager.CreateTask(RequestUsbHostStatus);
+                //RS485controller.TaskManager.CreateTask(RequestUsbHostModemStatus);
                 RS485controller.TaskManager.InitiateTaskProcessing();
                 rs485Started = !rs485Started;
             }

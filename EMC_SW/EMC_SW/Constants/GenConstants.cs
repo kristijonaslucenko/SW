@@ -25,6 +25,7 @@ namespace EMC_SW.GenConstants
         public const int RequestUsbHostStatusTaskId = 6;
         public const int StopTaskId = 7;
         public const int RequestUsbHostModemStatusTaskId = 8;
+        public const int ControlUsbHostModemTaskId = 9;
         public const int SerialReadTimeout = 200; //ms
         public const int taskQueueSize = 200;
         public const int transmissionResultsSize = 200;

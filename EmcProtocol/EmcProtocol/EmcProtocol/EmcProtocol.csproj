@@ -43,6 +43,10 @@
   <ItemGroup>
     <Compile Include="Ack.cs" />
     <Compile Include="Call.cs" />
+    <Compile Include="ControlUsbHostModemResponse.cs" />
+    <Compile Include="ControlUsbHostModem.cs" />
+    <Compile Include="RequestUsbHosModemtStatus.cs" />
+    <Compile Include="UsbHostModemStatus.cs" />
     <Compile Include="ControlDisplay.cs" />
     <Compile Include="ControlDisplayResponse.cs" />
     <Compile Include="ControlUsbHost.cs" />

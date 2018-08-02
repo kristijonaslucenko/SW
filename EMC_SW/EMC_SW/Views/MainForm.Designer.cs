@@ -50,8 +50,8 @@
             this.RS232comBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.usbHostModemErrorCount = new System.Windows.Forms.TextBox();
-            this.usbHostModemStatusTxtBx = new System.Windows.Forms.TextBox();
+            this.usbHostModemErrorCountText = new System.Windows.Forms.TextBox();
+            this.UsbHostModemStatusText = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.usbHostErrorCountText = new System.Windows.Forms.TextBox();
             this.UsbHostStatusText = new System.Windows.Forms.TextBox();
@@ -339,8 +339,8 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.usbHostModemErrorCount);
-            this.groupBox3.Controls.Add(this.usbHostModemStatusTxtBx);
+            this.groupBox3.Controls.Add(this.usbHostModemErrorCountText);
+            this.groupBox3.Controls.Add(this.UsbHostModemStatusText);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.usbHostErrorCountText);
             this.groupBox3.Controls.Add(this.UsbHostStatusText);
@@ -401,27 +401,27 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "COM Control";
             // 
-            // usbHostModemErrorCount
+            // usbHostModemErrorCountText
             // 
-            this.usbHostModemErrorCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usbHostModemErrorCount.Location = new System.Drawing.Point(210, 297);
-            this.usbHostModemErrorCount.Name = "usbHostModemErrorCount";
-            this.usbHostModemErrorCount.ReadOnly = true;
-            this.usbHostModemErrorCount.Size = new System.Drawing.Size(52, 20);
-            this.usbHostModemErrorCount.TabIndex = 64;
-            this.usbHostModemErrorCount.Text = " ";
-            this.usbHostModemErrorCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.usbHostModemErrorCountText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usbHostModemErrorCountText.Location = new System.Drawing.Point(210, 297);
+            this.usbHostModemErrorCountText.Name = "usbHostModemErrorCountText";
+            this.usbHostModemErrorCountText.ReadOnly = true;
+            this.usbHostModemErrorCountText.Size = new System.Drawing.Size(52, 20);
+            this.usbHostModemErrorCountText.TabIndex = 64;
+            this.usbHostModemErrorCountText.Text = " ";
+            this.usbHostModemErrorCountText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // usbHostModemStatusTxtBx
+            // UsbHostModemStatusText
             // 
-            this.usbHostModemStatusTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usbHostModemStatusTxtBx.Location = new System.Drawing.Point(38, 297);
-            this.usbHostModemStatusTxtBx.Name = "usbHostModemStatusTxtBx";
-            this.usbHostModemStatusTxtBx.ReadOnly = true;
-            this.usbHostModemStatusTxtBx.Size = new System.Drawing.Size(110, 20);
-            this.usbHostModemStatusTxtBx.TabIndex = 63;
-            this.usbHostModemStatusTxtBx.Text = " ";
-            this.usbHostModemStatusTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.UsbHostModemStatusText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsbHostModemStatusText.Location = new System.Drawing.Point(38, 297);
+            this.UsbHostModemStatusText.Name = "UsbHostModemStatusText";
+            this.UsbHostModemStatusText.ReadOnly = true;
+            this.UsbHostModemStatusText.Size = new System.Drawing.Size(110, 20);
+            this.UsbHostModemStatusText.TabIndex = 63;
+            this.UsbHostModemStatusText.Text = " ";
+            this.UsbHostModemStatusText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label10
             // 
@@ -1207,8 +1207,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox usbHostErrorCountText;
         private System.Windows.Forms.TextBox UsbHostStatusText;
-        private System.Windows.Forms.TextBox usbHostModemErrorCount;
-        private System.Windows.Forms.TextBox usbHostModemStatusTxtBx;
+        private System.Windows.Forms.TextBox usbHostModemErrorCountText;
+        private System.Windows.Forms.TextBox UsbHostModemStatusText;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox keyPressCountTextBox;
         private System.Windows.Forms.TextBox lastKeyPressedTextBox;

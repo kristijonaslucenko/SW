@@ -17,10 +17,11 @@ namespace EMC_SW.Controllers
         }
 
         BaseDataHandler ProcessorBaseDataHandler { get; set; }
+        int transmit = 0, missing = 0, error = 0, receive = 0, status = 0, operrors = 0, missingTrck1 = 0, missingTrck2 = 0, missingTrck3 = 0;
+
 
         public void ProcessCallTask(TaskLUP task)
         {
-            int transmit = 0, missing = 0, error = 0, receive = 0, status = 0, operrors = 0, missingTrck1 = 0, missingTrck2 = 0, missingTrck3 = 0;
 
             for (int i = 0; i < task.Repetition; i++)
             {
@@ -56,7 +57,6 @@ namespace EMC_SW.Controllers
 
         public void ProcessControlUsbHostTask(TaskLUP task)
         {
-            int transmit = 0, missing = 0, error = 0, receive = 0, status = 0, operrors = 0, missingTrck1 = 0, missingTrck2 = 0, missingTrck3 = 0;
 
             for (int i = 0; i < task.Repetition; i++)
             {
@@ -93,7 +93,6 @@ namespace EMC_SW.Controllers
 
         public void ProcessControlDisplayTask(TaskLUP task)
         {
-            int transmit = 0, missing = 0, error = 0, receive = 0, status = 0, operrors = 0, missingTrck1 = 0, missingTrck2 = 0, missingTrck3 = 0;
 
             for (int i = 0; i < task.Repetition; i++)
             {
@@ -130,7 +129,6 @@ namespace EMC_SW.Controllers
 
         public void ProcessRequestLastSeenKeyTask(TaskLUP task)
         {
-            int transmit = 0, missing = 0, error = 0, receive = 0, status = 0, operrors = 0, missingTrck1 = 0, missingTrck2 = 0, missingTrck3 = 0;
 
             for (int i = 0; i < task.Repetition; i++)
             {
@@ -168,7 +166,6 @@ namespace EMC_SW.Controllers
 
         public void ProcessRequestDisplayStateTask(TaskLUP task)
         {
-            int transmit = 0, missing = 0, error = 0, receive = 0, status = 0, operrors = 0, missingTrck1 = 0, missingTrck2 = 0, missingTrck3 = 0;
 
             for (int i = 0; i < task.Repetition; i++)
             {
@@ -205,7 +202,6 @@ namespace EMC_SW.Controllers
 
         public void ProcessRequestUsbHostStatusTask(TaskLUP task)
         {
-            int transmit = 0, missing = 0, error = 0, receive = 0, status = 0, operrors = 0, missingTrck1 = 0, missingTrck2 = 0, missingTrck3 = 0;
 
             for (int i = 0; i < task.Repetition; i++)
             {
@@ -239,7 +235,78 @@ namespace EMC_SW.Controllers
             CreateTransmissionRecord(task, transmit, receive, missing, error, status, operrors);
         }
 
-        private void CreateTransmissionRecord(TaskLUP task, int transmit, int receive, int missing, int error, int status, int operrors)
+        //Type 0x0D package: RequestUsbHostModemStatus
+        public void ProcessRequestUsbHostModemStatusTask(TaskLUP task)
+        {
+
+            for (int i = 0; i < task.Repetition; i++)
+            {
+                ProcessorBaseDataHandler.SendingData(task.AddedTask);
+                transmit++;
+                bool SerialTimedOut;
+                byte[] read = ProcessorBaseDataHandler.ReadingData(EmcProtocol.UsbHostModemStatus.ByteSize, out SerialTimedOut);
+
+                if (!SerialTimedOut && EmcProtocol.UsbHostModemStatus.IsValid(ref read))
+                {
+                    receive++;
+                    missingTrck1 = 0;
+                    status = (int)read[EmcProtocol.UsbHostModemStatus.StatusPosition];
+                    operrors = (int)read[EmcProtocol.UsbHostModemStatus.ErrorPosition];
+                }
+                else
+                {
+                    missing++;
+                    missingTrck1 = 1;
+                }
+                if (missingTrck1 == 1 && missingTrck2 == 1 && missingTrck3 == 1)
+                {
+                    error++;
+                    missingTrck1 = 0;
+                    missingTrck2 = 0;
+                    missingTrck3 = 0;
+                }
+                missingTrck3 = missingTrck2;
+                missingTrck2 = missingTrck1;
+            }
+            CreateTransmissionRecord(task, transmit, receive, missing, error, status, operrors);
+        }
+
+        //Type 0x10 package: ControlUsbHostModem
+
+        public void ProcessControlUsbHostModemTask(TaskLUP task)
+        {
+
+            for (int i = 0; i < task.Repetition; i++)
+            {
+                ProcessorBaseDataHandler.SendingData(task.AddedTask);
+                transmit++;
+                bool SerialTimedOut;
+                byte[] read = ProcessorBaseDataHandler.ReadingData(EmcProtocol.ControlUsbHostModemResponse.ByteSize, out SerialTimedOut);
+
+                if (!SerialTimedOut && EmcProtocol.ControlUsbHostModemResponse.IsValid(ref read))
+                {
+                    receive++;
+                    missingTrck1 = 0;
+                    status = (int)read[EmcProtocol.ControlUsbHostModemResponse.UsbStatePosition];
+                }
+                else
+                {
+                    missing++;
+                    missingTrck1 = 1;
+                }
+                if (missingTrck1 == 1 && missingTrck2 == 1 && missingTrck3 == 1)
+                {
+                    error++;
+                    missingTrck1 = 0;
+                    missingTrck2 = 0;
+                    missingTrck3 = 0;
+                }
+                missingTrck3 = missingTrck2;
+                missingTrck2 = missingTrck1;
+            }
+            CreateTransmissionRecord(task, transmit, receive, missing, error, status, operrors);
+        }
+        private void CreateTransmissionRecord(TaskLUP task, int transmitRec, int receiveRec, int missingRec, int errorRec, int statusRec, int operrorsRec)
         {
             Record NewRecord = null;
             NewRecord = new Record
@@ -248,14 +315,18 @@ namespace EMC_SW.Controllers
                 Id = task.id,
                 Repetition = task.Repetition,
                 IsContinuous = task.IsContinuous,
-                Status = status,
-                OpErrors = operrors,
-                Transmitted = transmit,
-                Received = receive,
-                Missing = missing,
-                Errors = error
+                Status = statusRec,
+                OpErrors = operrorsRec,
+                Transmitted = transmitRec,
+                Received = receiveRec,
+                Missing = missingRec,
+                Errors = errorRec
             };
             ProcessorBaseDataHandler.TransmissionResults.Enqueue(NewRecord);
+            error = 0;
+            missing = 0;
+            receive = 0;
+            transmit = 0;
         }
     }
 }

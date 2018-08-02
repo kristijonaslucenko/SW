@@ -143,13 +143,45 @@ CRC32 byte 1
 CRC32 byte 2
 CRC32 byte 3
 
-Type 0x0D package: UsbHostStatusModem
+Type 0x0D package: RequestUsbHostModemStatus
+Example:
+0x01
+0x0B
+0x00
+CRC32 byte 0
+CRC32 byte 1
+CRC32 byte 2
+CRC32 byte 3
+
+Type 0x0E package: UsbHostStatusModem
 Example:
 0x01
 0x0B
 0x02
 0x?? <-- 0 = Nothing, 1 = Read/Write cycle running, -1 if could not access memory stick
 0x???????? <-- Error count in read/write cycle
+CRC32 byte 0
+CRC32 byte 1
+CRC32 byte 2
+CRC32 byte 3
+
+Type 0x0F package: ControlUsbHostModem
+Example:
+0x01
+0x09
+0x01
+0x?? <-- 0 = Start Write/Read cycle, 1 = Stop Read/Write cycle
+CRC32 byte 0
+CRC32 byte 1
+CRC32 byte 2
+CRC32 byte 3
+
+Type 0x10 package: ControlUsbHostModemResponse
+Example:
+0x01
+0x0A
+0x01
+0x?? <-- 0 = Nothing, 1 = Read/Write cycle running, -1 if could not access memory stick
 CRC32 byte 0
 CRC32 byte 1
 CRC32 byte 2

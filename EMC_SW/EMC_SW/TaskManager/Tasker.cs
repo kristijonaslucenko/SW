@@ -103,7 +103,25 @@ namespace EMC_SW.TaskManager
                             LupTaskQueue.Enqueue(FirstQueueTask);
                         }
                         break;
-                        //clean task queue
+                    //RequestUsbHostModemStatusTaskId
+                    case GenConstants.GenConstants.RequestUsbHostModemStatusTaskId:
+                        Processor.ProcessRequestUsbHostModemStatusTask(FirstQueueTask);
+                        LupTaskQueue.Dequeue();
+                        if (FirstQueueTask.IsContinuous && !stopAllFlag)
+                        {
+                            LupTaskQueue.Enqueue(FirstQueueTask);
+                        }
+                        break;
+                    //RequestUsbHostStatusTaskId
+                    case GenConstants.GenConstants.ControlUsbHostModemTaskId:
+                        Processor.ProcessControlUsbHostModemTask(FirstQueueTask);
+                        LupTaskQueue.Dequeue();
+                        if (FirstQueueTask.IsContinuous && !stopAllFlag)
+                        {
+                            LupTaskQueue.Enqueue(FirstQueueTask);
+                        }
+                        break;
+                    //clean task queue
                     case GenConstants.GenConstants.StopTaskId:
                         stopAllFlag = true;
                         LupTaskQueue.CleanQueue();
