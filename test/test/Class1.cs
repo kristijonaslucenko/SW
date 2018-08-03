@@ -15,8 +15,8 @@ namespace serialConsole
             try
             {
                 //open serial port with given arguments COM and baudrate
-                SerialPort s1 = new SerialPort("COM15", 9600);
-                s1.ReadTimeout = 200;
+                SerialPort s1 = new SerialPort("COM15", 115200);
+                //s1.ReadTimeout = 200;
                 s1.Open();
                 // Console.WriteLine(args[0].ToString());
 

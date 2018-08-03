@@ -490,6 +490,13 @@ namespace EMC_SW
                     Repetition = 1,
                     IsContinuous = false
                 };
+                UsbModemControlTask = new TaskLUP
+                {
+                    AddedTask = EmcProtocol.ControlUsbHostModem.StartUsbReadWrite(),
+                    id = GenConstants.GenConstants.ControlUsbHostModemTaskId,
+                    Repetition = 1,
+                    IsContinuous = false
+                };
                 RS485controller.TaskManager.stopAllFlag = false;
                 RS485controller.TaskQueueSize = GenConstants.GenConstants.taskQueueSize; //deal with this one
                 RS485controller.TransmissionResultsSize = GenConstants.GenConstants.transmissionResultsSize; //deal with this one
