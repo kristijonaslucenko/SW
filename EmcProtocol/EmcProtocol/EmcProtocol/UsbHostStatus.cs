@@ -7,7 +7,7 @@ namespace EmcProtocol
         public const Protocol.V1.Type Type = Protocol.V1.Type.UsbHostStatus;
         public const byte StatusPosition = Protocol.V1.LengthPosition + 1;
         public const byte ErrorPosition = Protocol.V1.LengthPosition + 2;
-        public const byte DataLength = 2;
+        public const byte DataLength = 1;
         public const byte ByteSize = Protocol.HeaderLength + Protocol.CrcLength + DataLength;
 
         public static bool IsValid(ref byte[] data)
@@ -45,15 +45,6 @@ namespace EmcProtocol
             return 0;
         }
 
-        public static byte[] CreateTestResponseMessage(byte status, byte errorCount)
-        {
-            var data = new byte[ByteSize];
-            Protocol.V1.CreateHeader(ref data, Type, DataLength);
-            data[StatusPosition] = status;
-            data[ErrorPosition] = errorCount;
-            Protocol.V1.AddCrc(ref data);
-            return data;
-        }
     }
 }
 
